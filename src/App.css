@@ -18,11 +18,7 @@ main {
   width: 100%;
 }
 
-section {
-
-}
-
-.Landing-page {
+.Landing-page, .Account-signup-page {
   display: flex;
   padding: 10% 0;
 }
@@ -41,4 +37,32 @@ section {
   width: 60vw;
   height: 70vh;
   background-color: #a0a0a0;
+}
+
+.Main-container {
+  margin: 0 20vw 0 20vw;
+  text-align: center;
+  width: 60vw;
+  height: 70vh;
+  background-color: #a0a0a0;
+}
+
+.Signup-form {
+  padding: 10% 0 0 0;
+}
+
+.Signup-form fieldset {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  height: 100%;
+  padding: 0 0 0 5%;
+  margin: 0;
+  border: none;
+}
+.Signup-form fieldset label, .Signup-form fieldset input {
+  padding: 1% 0 0 1%;
+  margin: 0;
+  text-align: start;
+  width: 90%;
 }
