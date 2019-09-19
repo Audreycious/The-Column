@@ -18,7 +18,7 @@ main {
   width: 100%;
 }
 
-.Landing-page, .Account-signup-page {
+.Landing-page, .Account-signup-page, .Login-page {
   display: flex;
   padding: 10% 0;
 }
@@ -47,11 +47,11 @@ main {
   background-color: #a0a0a0;
 }
 
-.Signup-form {
+.Signup-form, .Login-form {
   padding: 10% 0 0 0;
 }
 
-.Signup-form fieldset {
+.Signup-form fieldset, .Login-form fieldset {
   display: flex;
   flex-direction: column;
   width: 95%;
@@ -60,7 +60,7 @@ main {
   margin: 0;
   border: none;
 }
-.Signup-form fieldset label, .Signup-form fieldset input {
+.Signup-form fieldset label, .Signup-form fieldset input, .Login-form fieldset label, .Login-form fieldset input {
   padding: 1% 0 0 1%;
   margin: 0;
   text-align: start;
