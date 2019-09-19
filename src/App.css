@@ -22,7 +22,7 @@ section {
   height: 100%;
 }
 
-.Landing-page, .Account-signup-page, .Login-page {
+.Landing-page, .Account-signup-page, .Login-page, .Write-article-page {
   display: flex;
   padding: 10% 0;
 }
@@ -52,11 +52,11 @@ section {
   overflow: scroll;
 }
 
-.Signup-form, .Login-form {
+.Signup-form, .Login-form, .Article-form {
   padding: 10% 0 0 0;
 }
 
-.Signup-form fieldset, .Login-form fieldset {
+.Signup-form fieldset, .Login-form fieldset, .Article-form fieldset {
   display: flex;
   flex-direction: column;
   width: 95%;
@@ -65,7 +65,7 @@ section {
   margin: 0;
   border: none;
 }
-.Signup-form fieldset label, .Signup-form fieldset input, .Login-form fieldset label, .Login-form fieldset input {
+.Signup-form fieldset label, .Signup-form fieldset input, .Login-form fieldset label, .Login-form fieldset input, .Article-form fieldset label, .Article-form fieldset input {
   padding: 1% 0 0 1%;
   margin: 0;
   text-align: start;
@@ -93,4 +93,8 @@ section {
 
 .Comments-section {
   border-top: 1px dashed black;
+}
+
+.print-input {
+  height: 30vh;
 }

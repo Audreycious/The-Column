@@ -8,7 +8,25 @@ function App() {
         The Column
       </header>
       <main>
-        <section className='Main-page'>
+        <section className='Write-article-page'>
+          <div className='Main-container'>
+            <form action="#" className="Article-form">
+              <fieldset>
+                <legend>Submit an Article<br/>to The Column</legend>
+                <label htmlFor="headline">Headline:</label>
+                <input type="text" name="headline" />
+                <label htmlFor="print">Print:</label>
+                <input type="text" name="print" className="print-input" />
+              </fieldset>
+              <button type="submit">Hand it in to the Editor</button>
+            </form>
+          </div>
+        </section>
+
+
+
+
+        {/* <section className='Main-page'>
           <div className='Main-page-toolbar'>
             <a href="#">Write Article</a>
             <a href="#">Filter</a>
@@ -121,7 +139,7 @@ function App() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
 
 
