@@ -8,7 +8,126 @@ function App() {
         The Column
       </header>
       <main>
-        <section className='Login-page'>
+        <section className='Main-page'>
+          <div className='Main-page-toolbar'>
+            <a href="#">Write Article</a>
+            <a href="#">Filter</a>
+            <a href="#">Sort</a>
+          </div>
+          <div className='Main-container'>
+            <div className='Article'>
+              <div className='Article-content'>Article content</div>
+              <div className='Comments-section'>
+                <div className='Comment'>Comment</div>
+                <div className='Comment'>Comment</div>
+              </div>
+            </div>
+            <div className='Article'>
+              <div className='Article-content'>Article content</div>
+              <div className='Comments-section'>
+                <div className='Comment'>Comment</div>
+                <div className='Comment'>Comment</div>
+              </div>
+            </div>
+            <div className='Article'>
+              <div className='Article-content'>Article content</div>
+              <div className='Comments-section'>
+                <div className='Comment'>Comment</div>
+                <div className='Comment'>Comment</div>
+              </div>
+            </div>
+            <div className='Article'>
+              <div className='Article-content'>Article content</div>
+              <div className='Comments-section'>
+                <div className='Comment'>Comment</div>
+                <div className='Comment'>Comment</div>
+              </div>
+            </div>
+            <div className='Article'>
+              <div className='Article-content'>Article content</div>
+              <div className='Comments-section'>
+                <div className='Comment'>Comment</div>
+                <div className='Comment'>Comment</div>
+              </div>
+            </div>
+            <div className='Article'>
+              <div className='Article-content'>Article content</div>
+              <div className='Comments-section'>
+                <div className='Comment'>Comment</div>
+                <div className='Comment'>Comment</div>
+              </div>
+            </div>
+            <div className='Article'>
+              <div className='Article-content'>Article content</div>
+              <div className='Comments-section'>
+                <div className='Comment'>Comment</div>
+                <div className='Comment'>Comment</div>
+              </div>
+            </div>
+            <div className='Article'>
+              <div className='Article-content'>Article content</div>
+              <div className='Comments-section'>
+                <div className='Comment'>Comment</div>
+                <div className='Comment'>Comment</div>
+              </div>
+            </div>
+            <div className='Article'>
+              <div className='Article-content'>Article content</div>
+              <div className='Comments-section'>
+                <div className='Comment'>Comment</div>
+                <div className='Comment'>Comment</div>
+              </div>
+            </div>
+            <div className='Article'>
+              <div className='Article-content'>Article content</div>
+              <div className='Comments-section'>
+                <div className='Comment'>Comment</div>
+                <div className='Comment'>Comment</div>
+              </div>
+            </div>
+            <div className='Article'>
+              <div className='Article-content'>Article content</div>
+              <div className='Comments-section'>
+                <div className='Comment'>Comment</div>
+                <div className='Comment'>Comment</div>
+              </div>
+            </div>
+            <div className='Article'>
+              <div className='Article-content'>Article content</div>
+              <div className='Comments-section'>
+                <div className='Comment'>Comment</div>
+                <div className='Comment'>Comment</div>
+              </div>
+            </div>
+            <div className='Article'>
+              <div className='Article-content'>Article content</div>
+              <div className='Comments-section'>
+                <div className='Comment'>Comment</div>
+                <div className='Comment'>Comment</div>
+              </div>
+            </div>
+            <div className='Article'>
+              <div className='Article-content'>Article content</div>
+              <div className='Comments-section'>
+                <div className='Comment'>Comment</div>
+                <div className='Comment'>Comment</div>
+              </div>
+            </div>
+            <div className='Article'>
+              <div className='Article-content'>Article content</div>
+              <div className='Comments-section'>
+                <div className='Comment'>Comment</div>
+                <div className='Comment'>Comment</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+
+
+
+        {/* <section className='Login-page'>
           <div className='Main-container'>
             <form action="#" className="Login-form">
               <fieldset>
@@ -22,7 +141,7 @@ function App() {
               <button type="submit">Login</button>
             </form>
           </div>
-        </section>
+        </section> */}
 
 
 

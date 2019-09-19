@@ -18,6 +18,10 @@ main {
   width: 100%;
 }
 
+section {
+  height: 100%;
+}
+
 .Landing-page, .Account-signup-page, .Login-page {
   display: flex;
   padding: 10% 0;
@@ -43,8 +47,9 @@ main {
   margin: 0 20vw 0 20vw;
   text-align: center;
   width: 60vw;
-  height: 70vh;
+  height: 95%;
   background-color: #a0a0a0;
+  overflow: scroll;
 }
 
 .Signup-form, .Login-form {
@@ -65,4 +70,27 @@ main {
   margin: 0;
   text-align: start;
   width: 90%;
+}
+
+.Main-page-toolbar {
+  height: 5%;
+  display: flex;
+  margin: 0 auto;
+  width: 60%;
+  justify-content: space-evenly;
+}
+
+.Article {
+  height: auto;
+  width: 100%;
+  border: 1px solid black;
+  margin: 0 0 2vh 0;
+}
+
+.Article-content {
+  height: 10vh;
+}
+
+.Comments-section {
+  border-top: 1px dashed black;
 }
