@@ -13,7 +13,8 @@ export default class AccountSignupPage extends Component {
 
     handleSignupSubmit = (event) => {
         event.preventDefault()
-        this.props.onSignupSubmit(event)
+        let user = this.state
+        this.props.onSignupSubmit(user)
     }
 
     handleInputChange = (event) => {
