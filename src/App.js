@@ -1,202 +1,50 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { Switch } from "react-router";
 import './App.css';
+import LandingPage from "./components/Landing-Page";
+import AccountSignupPage from "./components/Account-Signup-Page";
+import LoginPage from "./components/Login-Page";
+import MainPage from "./components/Main-Page";
+import WriteArticlePage from "./components/Write-Article-Page";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        The Column
-      </header>
-      <main>
-        <section className='Write-article-page'>
-          <div className='Main-container'>
-            <form action="#" className="Article-form">
-              <fieldset>
-                <legend>Submit an Article<br/>to The Column</legend>
-                <label htmlFor="headline">Headline:</label>
-                <input type="text" name="headline" />
-                <label htmlFor="print">Print:</label>
-                <input type="text" name="print" className="print-input" />
-              </fieldset>
-              <button type="submit">Hand it in to the Editor</button>
-            </form>
-          </div>
-        </section>
+const articles = [{headline: 'Headline 1', content: 'Content 1', comments: ['Comment 1', 'Comment 2', 'Comment 3', 'Comment 4', 'Comment 5', 'Comment 6', 'Comment 7', 'Comment 8', 'Comment 9', 'Comment 10', ]}, {headline: 'Headline 2', content: 'Content 2', comments: ['Comment 1', 'Comment 2', 'Comment 3', 'Comment 4', 'Comment 5', 'Comment 6', 'Comment 7', 'Comment 8', 'Comment 9', 'Comment 10' ]}]
 
+class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      articles: [],
+      users: [],
+    }
+  }
 
+  componentDidMount() {
+    this.setState({articles})
+  }
 
+  handleSubmitSignupForm = (event) => {
+    event.preventDefault()
+    console.log(event)
+  }
 
-        {/* <section className='Main-page'>
-          <div className='Main-page-toolbar'>
-            <a href="#">Write Article</a>
-            <a href="#">Filter</a>
-            <a href="#">Sort</a>
-          </div>
-          <div className='Main-container'>
-            <div className='Article'>
-              <div className='Article-content'>Article content</div>
-              <div className='Comments-section'>
-                <div className='Comment'>Comment</div>
-                <div className='Comment'>Comment</div>
-              </div>
-            </div>
-            <div className='Article'>
-              <div className='Article-content'>Article content</div>
-              <div className='Comments-section'>
-                <div className='Comment'>Comment</div>
-                <div className='Comment'>Comment</div>
-              </div>
-            </div>
-            <div className='Article'>
-              <div className='Article-content'>Article content</div>
-              <div className='Comments-section'>
-                <div className='Comment'>Comment</div>
-                <div className='Comment'>Comment</div>
-              </div>
-            </div>
-            <div className='Article'>
-              <div className='Article-content'>Article content</div>
-              <div className='Comments-section'>
-                <div className='Comment'>Comment</div>
-                <div className='Comment'>Comment</div>
-              </div>
-            </div>
-            <div className='Article'>
-              <div className='Article-content'>Article content</div>
-              <div className='Comments-section'>
-                <div className='Comment'>Comment</div>
-                <div className='Comment'>Comment</div>
-              </div>
-            </div>
-            <div className='Article'>
-              <div className='Article-content'>Article content</div>
-              <div className='Comments-section'>
-                <div className='Comment'>Comment</div>
-                <div className='Comment'>Comment</div>
-              </div>
-            </div>
-            <div className='Article'>
-              <div className='Article-content'>Article content</div>
-              <div className='Comments-section'>
-                <div className='Comment'>Comment</div>
-                <div className='Comment'>Comment</div>
-              </div>
-            </div>
-            <div className='Article'>
-              <div className='Article-content'>Article content</div>
-              <div className='Comments-section'>
-                <div className='Comment'>Comment</div>
-                <div className='Comment'>Comment</div>
-              </div>
-            </div>
-            <div className='Article'>
-              <div className='Article-content'>Article content</div>
-              <div className='Comments-section'>
-                <div className='Comment'>Comment</div>
-                <div className='Comment'>Comment</div>
-              </div>
-            </div>
-            <div className='Article'>
-              <div className='Article-content'>Article content</div>
-              <div className='Comments-section'>
-                <div className='Comment'>Comment</div>
-                <div className='Comment'>Comment</div>
-              </div>
-            </div>
-            <div className='Article'>
-              <div className='Article-content'>Article content</div>
-              <div className='Comments-section'>
-                <div className='Comment'>Comment</div>
-                <div className='Comment'>Comment</div>
-              </div>
-            </div>
-            <div className='Article'>
-              <div className='Article-content'>Article content</div>
-              <div className='Comments-section'>
-                <div className='Comment'>Comment</div>
-                <div className='Comment'>Comment</div>
-              </div>
-            </div>
-            <div className='Article'>
-              <div className='Article-content'>Article content</div>
-              <div className='Comments-section'>
-                <div className='Comment'>Comment</div>
-                <div className='Comment'>Comment</div>
-              </div>
-            </div>
-            <div className='Article'>
-              <div className='Article-content'>Article content</div>
-              <div className='Comments-section'>
-                <div className='Comment'>Comment</div>
-                <div className='Comment'>Comment</div>
-              </div>
-            </div>
-            <div className='Article'>
-              <div className='Article-content'>Article content</div>
-              <div className='Comments-section'>
-                <div className='Comment'>Comment</div>
-                <div className='Comment'>Comment</div>
-              </div>
-            </div>
-          </div>
-        </section> */}
-
-
-
-
-
-        {/* <section className='Login-page'>
-          <div className='Main-container'>
-            <form action="#" className="Login-form">
-              <fieldset>
-                <legend>Login to The Column</legend>
-                <label htmlFor="username">Username:</label>
-                <input type="text" name="username" />
-                <label htmlFor="password">Password:</label>
-                <input type="password" name="password" />
-              </fieldset>
-              <p>Welcome back</p>
-              <button type="submit">Login</button>
-            </form>
-          </div>
-        </section> */}
-
-
-
-
-        {/* <section className='Account-signup-page'>
-          <div className='Main-container'>
-            <form action="#" className="Signup-form">
-              <fieldset>
-                <legend>Signup for The Column</legend>
-                <label htmlFor="name">Name:</label>
-                <input type="text" name="name" />
-                <label htmlFor="email">Email:</label>
-                <input type="email" name="email" />
-                <label htmlFor="username">Username:</label>
-                <input type="text" name="username" />
-                <label htmlFor="password">Password:</label>
-                <input type="password" name="password" />
-              </fieldset>
-              <p>Disclaimer</p>
-              <button type="submit">Join</button>
-            </form>
-          </div>
-        </section> */}
-
-
-        {/* <section className="Landing-page">
-          <div className='Sidebar-link-container'>
-            <a href="#">Login</a>
-            <a href="#">Signup</a>
-          </div>
-          <div className="Description-container">
-            Website Description
-          </div>
-        </section> */}
-      </main>
-    </div>
-  );
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          The Column
+        </header>
+        <main>
+          <Switch>
+            <LandingPage exact path='/' />
+            <AccountSignupPage path='/account-signup-page' onSignupSubmit={this.handleSubmitSignupForm} />
+            <LoginPage path='/login-page' />
+            <MainPage articles={articles} path='/main-page' />
+            <WriteArticlePage path='/write-article-page' />
+          </Switch>
+        </main>
+      </div>
+    );
+  }
 }
 
 export default App;
