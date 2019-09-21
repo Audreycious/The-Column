@@ -7,9 +7,7 @@ import AccountSignupPage from "./components/Account-Signup-Page"
 import LoginPage from "./components/Login-Page"
 import MainPage from "./components/Main-Page"
 import WriteArticlePage from "./components/Write-Article-Page"
-
-const articles = [{headline: 'Headline 1', print: 'Print 1', comments: ['Comment 1', 'Comment 2', 'Comment 3', 'Comment 4', 'Comment 5']}, {headline: 'Headline 2', print: 'Print 2', comments: ['Comment 1', 'Comment 2', 'Comment 3', 'Comment 4', 'Comment 5']}, {headline: 'Headline 3', print: 'Print 3', comments: ['Comment 1', 'Comment 2', 'Comment 3', 'Comment 4', 'Comment 5']}, {headline: 'Headline 4', print: 'Print 4', comments: ['Comment 1', 'Comment 2', 'Comment 3', 'Comment 4', 'Comment 5']}, {headline: 'Headline 5', print: 'Print 5', comments: ['Comment 1', 'Comment 2', 'Comment 3', 'Comment 4', 'Comment 5']}]
-const users = [{name: 'Audrey', email: 'Porcupine4@gmail.com', username: 'Audrey', password: 'Audrey'}]
+import dummyStore from "./dummyStore";
 
 class App extends Component {
   constructor(props) {
@@ -21,6 +19,7 @@ class App extends Component {
   }
 
   componentDidMount() {
+    const {articles, users} = dummyStore
     this.setState({articles, users})
   }
 
