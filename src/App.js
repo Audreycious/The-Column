@@ -81,7 +81,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          The Column
+          <a href="http://localhost:3000/main-page"><h1>The Column</h1></a>
         </header>
         <main>
           <Switch>

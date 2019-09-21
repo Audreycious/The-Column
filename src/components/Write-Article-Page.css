@@ -1,0 +1,32 @@
+.Article-form {
+    padding: 10% 0 0 0;
+}
+
+.Article-form fieldset {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    margin: 0;
+    border: none;
+}
+
+.Article-form fieldset label, .Article-form fieldset input {
+    padding: 1% 0 0 1%;
+    margin: 0;
+    width: 100%;
+    text-align: start;
+}
+
+.Article-headline-input::placeholder, .Article-print-input::placeholder {
+    padding: 0 0 10%;
+}
+
+.Article-headline-input {
+    height: 5vh;
+}
+
+.Article-print-input {
+    height: 30vh;
+    margin: 0;
+}

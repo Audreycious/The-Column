@@ -7,8 +7,8 @@ export default function MainPage(props) {
         <section className='Main-page'>
             <div className='Main-page-toolbar'>
                 <Link to="/write-article-page">Write Article</Link>
-                <button>Filter</button>
-                <button>Sort</button>
+                <Link>Filter</Link>
+                <Link>Sort</Link>
             </div>
             <div className='Main-container'>
                 <Article onCommentSubmit={props.onCommentSubmit} articles={props.articles}/>

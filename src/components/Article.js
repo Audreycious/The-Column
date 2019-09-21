@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Comments from "./Comments"
+import "./Article.css";
 
 export default class Article extends Component {
     constructor(props) {
@@ -55,7 +56,7 @@ export default class Article extends Component {
                     <div className='Article-headline'>
                         {article.headline}
                     </div>
-                    <div> 
+                    <div className='Article-print'> 
                         {article.print}
                     </div>
                 </div>

@@ -16,6 +16,13 @@ main {
   height: 10vh;
   color: white;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  margin: 0;
 }
 
 section {
@@ -52,11 +59,11 @@ section {
   overflow: scroll;
 }
 
-.Signup-form, .Login-form, .Article-form {
+.Signup-form, .Login-form {
   padding: 10% 0 0 0;
 }
 
-.Signup-form fieldset, .Login-form fieldset, .Article-form fieldset {
+.Signup-form fieldset, .Login-form fieldset {
   display: flex;
   flex-direction: column;
   width: 95%;
@@ -65,7 +72,8 @@ section {
   margin: 0;
   border: none;
 }
-.Signup-form fieldset label, .Signup-form fieldset input, .Login-form fieldset label, .Login-form fieldset input, .Article-form fieldset label, .Article-form fieldset input {
+
+.Signup-form fieldset label, .Signup-form fieldset input, .Login-form fieldset label, .Login-form fieldset input {
   padding: 1% 0 0 1%;
   margin: 0;
   text-align: start;
@@ -80,21 +88,3 @@ section {
   justify-content: space-evenly;
 }
 
-.Article {
-  height: auto;
-  width: 100%;
-  border: 1px solid black;
-  margin: 0 0 2vh 0;
-}
-
-.Article-content {
-  height: 10vh;
-}
-
-.Comments-section {
-  border-top: 1px dashed black;
-}
-
-.print-input {
-  height: 30vh;
-}
