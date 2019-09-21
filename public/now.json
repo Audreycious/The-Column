@@ -1,0 +1,15 @@
+{
+    "version": 2,
+    "alias": "the-column-app",
+    "name": "the-column",
+    "routes": [
+        {
+          "src": "^/static/(.*)",
+          "dest": "/static/$1"
+        },
+        {
+          "src": ".*",
+          "dest": "/index.html"
+        }
+    ]
+}
