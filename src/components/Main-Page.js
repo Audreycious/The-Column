@@ -10,7 +10,7 @@ export default function MainPage(props) {
                 <button>Sort</button>
             </div>
             <div className='Main-container'>
-                <Article articles={props.articles}/>
+                <Article onCommentSubmit={props.onCommentSubmit} articles={props.articles}/>
             </div>
         </section>
     )

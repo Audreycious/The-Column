@@ -8,7 +8,8 @@ import LoginPage from "./components/Login-Page"
 import MainPage from "./components/Main-Page"
 import WriteArticlePage from "./components/Write-Article-Page"
 
-const articles = [{headline: 'Headline 1', content: 'Content 1', comments: ['Comment 1', 'Comment 2', 'Comment 3', 'Comment 4', 'Comment 5', 'Comment 6', 'Comment 7', 'Comment 8', 'Comment 9', 'Comment 10', ]}, {headline: 'Headline 2', content: 'Content 2', comments: ['Comment 1', 'Comment 2', 'Comment 3', 'Comment 4', 'Comment 5', 'Comment 6', 'Comment 7', 'Comment 8', 'Comment 9', 'Comment 10' ]}]
+const articles = [{headline: 'Headline 1', content: 'Content 1', comments: ['Comment 1', 'Comment 2', 'Comment 3', 'Comment 4', 'Comment 5']}, {headline: 'Headline 2', content: 'Content 2', comments: ['Comment 1', 'Comment 2', 'Comment 3', 'Comment 4', 'Comment 5']}, {headline: 'Headline 3', content: 'Content 3', comments: ['Comment 1', 'Comment 2', 'Comment 3', 'Comment 4', 'Comment 5']}, {headline: 'Headline 4', content: 'Content 4', comments: ['Comment 1', 'Comment 2', 'Comment 3', 'Comment 4', 'Comment 5']}, {headline: 'Headline 5', content: 'Content 5', comments: ['Comment 1', 'Comment 2', 'Comment 3', 'Comment 4', 'Comment 5']}]
+const users = [{name: 'Audrey', email: 'Porcupine4@gmail.com', username: 'Audrey', password: 'Audrey'}]
 
 class App extends Component {
   constructor(props) {
@@ -20,7 +21,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.setState({articles})
+    this.setState({articles, users})
   }
 
   handleSubmitSignupForm = (user) => {
@@ -31,8 +32,37 @@ class App extends Component {
         user
       ]
     })
-    console.log(this.state.users)
+    // console.log(this.state.users)
     this.props.history.push('/main-page')
+  }
+
+  handleSubmitLoginForm = (loginInfo) => {
+    // console.log(loginInfo)
+    let usersArr = this.state.users
+    let findUser = usersArr.find((user, i) => {
+      return user.username.toLowerCase() === loginInfo.username.toLowerCase()
+    })
+    // console.log(findUser)
+    
+    if (!findUser) {
+      return console.log(`Error: User not found`)
+    }
+    else if (findUser.password.toLowerCase() !== loginInfo.password.toLowerCase()) {
+      return console.log(`Error: Password is incorrect`)
+    }
+    else {
+      this.props.history.push('/main-page')
+    }
+  }
+
+  handleSubmitCommentsForm = (name, newComment) => {
+    console.log(newComment)
+    const newArticlesArray = [...this.state.articles]
+    const updatedCommentsArray = [...newArticlesArray[name].comments, newComment]
+    newArticlesArray[name].comments = updatedCommentsArray 
+    this.setState({
+      articles: articles
+    })
   }
 
   render() {
@@ -45,8 +75,8 @@ class App extends Component {
           <Switch>
             <LandingPage exact path='/' />
             <AccountSignupPage path='/account-signup-page' onSignupSubmit={this.handleSubmitSignupForm} />
-            <LoginPage path='/login-page' />
-            <MainPage articles={articles} path='/main-page' />
+            <LoginPage path='/login-page' onLoginSubmit={this.handleSubmitLoginForm} />
+            <MainPage onCommentSubmit={this.handleSubmitCommentsForm} articles={articles} path='/main-page' />
             <WriteArticlePage path='/write-article-page' />
           </Switch>
         </main>

@@ -30,7 +30,7 @@ export default class AccountSignupPage extends Component {
         return (
             <section className='Account-signup-page'>
                 <div className='Main-container'>
-                    <form action="#" className="Signup-form">
+                    <form action="#" className="Signup-form" onSubmit={this.handleSignupSubmit}>
                     <fieldset>
                         <legend>Signup for The Column</legend>
                         <label htmlFor="name">Name:</label>
@@ -43,7 +43,7 @@ export default class AccountSignupPage extends Component {
                         <input type="password" name="password" onChange={this.handleInputChange} placeholder='Enter a password' />
                     </fieldset>
                     <p>Enter this site at your own risk</p>
-                    <button type="submit" onClick={this.handleSignupSubmit}>Join</button>
+                    <button type="submit" >Join</button>
                     </form>
                 </div>
             </section>
