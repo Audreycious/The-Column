@@ -8,6 +8,9 @@ export default class Article extends Component {
             commentsForArticle: []
         }
     }
+    static defaultProps = {
+        articles: []
+    }
 
     handleInputChange = (event) => {
         const target = event.target
@@ -53,7 +56,7 @@ export default class Article extends Component {
                         {article.headline}
                     </div>
                     <div> 
-                        {article.content}
+                        {article.print}
                     </div>
                 </div>
                 <div className='Comments-section'>
@@ -77,3 +80,5 @@ export default class Article extends Component {
         )
     }
 }
+
+
