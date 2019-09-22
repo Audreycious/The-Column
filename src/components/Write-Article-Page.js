@@ -6,8 +6,7 @@ export default class WriteArticlePage extends Component {
         super(props)
         this.state = {
           headline: [],
-          print: [],
-          comments: [],
+          print: []
         }
     }   
 

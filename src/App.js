@@ -62,7 +62,12 @@ class App extends Component {
 
   handleSubmitSignupForm = (user) => {
     console.log(user)
-    
+    // this.setState({
+    //   users: [
+    //     ...this.state.users,
+    //     user
+    //   ]
+    // })
     this.props.history.push('/main-page')
   }
 
@@ -121,16 +126,35 @@ class App extends Component {
   }
 
   handleSubmitWriteForm = (article) => {
-    console.log(article)
-    const newArticlesArray = [...this.state.articles]
-    const updatedArticlesArray = [article, ...newArticlesArray]
-    console.log(updatedArticlesArray);
-    
-    this.setState({
-      articles: updatedArticlesArray
-    }, () => this.props.history.push('/main-page'))
-    console.log(this.state.articles)
-    
+    let articlesURL = config.API_ENDPOINT + `api/articles`
+
+    // TODO: implement user_id addition when user accounts live
+    const tempUserID = '1'
+    article.user_id = tempUserID
+    article.created = new Date()
+    fetch(articlesURL, {
+      method: 'POST',
+      headers: {
+        'content-type': "application/json",
+      },
+      body: JSON.stringify(article)
+    })
+    .then(response => {
+      if (!response.ok) {
+        return response.json().then(responseJson => Promise.reject(responseJson))
+      }
+      return response.json()
+    })
+    .then(article => {
+      console.log(article)
+      const newArticlesArray = [...this.state.articles]
+      const updatedArticlesArray = [article, ...newArticlesArray]
+      console.log(updatedArticlesArray)
+      this.setState({
+        articles: updatedArticlesArray
+      }, () => this.props.history.push('/main-page'))
+      console.log(this.state.articles)
+    })
   }
 
   render() {
