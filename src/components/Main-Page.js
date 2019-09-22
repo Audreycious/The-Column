@@ -6,9 +6,9 @@ export default function MainPage(props) {
     return (
         <section className='Main-page'>
             <div className='Main-page-toolbar'>
-                <Link to="/write-article-page">Write Article</Link>
-                <Link>Filter</Link>
-                <Link>Sort</Link>
+                <Link to="/write-article-page" >Write Article</Link>
+                <Link to="" >Filter</Link>
+                <Link to="" >Sort</Link>
             </div>
             <div className='Main-container'>
                 <Article onCommentSubmit={props.onCommentSubmit} articles={props.articles}/>

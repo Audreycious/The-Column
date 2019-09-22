@@ -10,3 +10,7 @@ export default function Comments(props) {
         </React.Fragment>
     )
 } 
+
+Comments.defaultProps = {
+    comments: []
+}

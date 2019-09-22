@@ -61,7 +61,7 @@ export default class Article extends Component {
                     </div>
                 </div>
                 <div className='Comments-section'>
-                    <Comments key={i} comments={article.comments} />
+                    <Comments key={i} comments={article.comments || []} />
                 </div>
                 <form className='Comments-input-section' onSubmit={this.handleCommentSubmit} name={i} id={`Article-form-${i}`}>
                     <input 
