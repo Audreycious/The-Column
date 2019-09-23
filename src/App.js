@@ -82,29 +82,55 @@ class App extends Component {
         // TODO: Store the user login in the session
         this.props.history.push('/main-page')
       })
+      .catch(error => {
+        alert(error.error)
+      })
   }
 
   handleSubmitLoginForm = (loginInfo) => {
-    // console.log(loginInfo)
-    let usersArr = this.state.users
-    let findUser = usersArr.find((user, i) => {
-      return user.username.toLowerCase() === loginInfo.username.toLowerCase()
-    })
+    console.log(loginInfo)
+    let loginURL = config.API_ENDPOINT + `api/login`
+    fetch(loginURL,
+      {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json'
+        },
+        body: JSON.stringify(loginInfo)
+      })
+      .then(response => {
+        if (!response.ok) {
+          return response.json().then(responseJson => Promise.reject(responseJson))
+        }
+        return response.json()
+      })
+      .then(response => {
+        console.log(response)
+        // TODO: Store the user login in the session
+        this.props.history.push('/main-page')
+      })
+      .catch(error => {
+        alert(error.error)
+      })
+    // let usersArr = this.state.users
+    // let findUser = usersArr.find((user, i) => {
+    //   return user.username.toLowerCase() === loginInfo.username.toLowerCase()
+    // })
     // console.log(findUser)
     
-    if (!findUser) {
-      return console.log(`Error: User not found`)
-    }
-    else if (findUser.password.toLowerCase() !== loginInfo.password.toLowerCase()) {
-      return console.log(`Error: Password is incorrect`)
-    }
-    else {
-      this.props.history.push('/main-page')
-    }
+    // if (!findUser) {
+    //   return console.log(`Error: User not found`)
+    // }
+    // else if (findUser.password.toLowerCase() !== loginInfo.password.toLowerCase()) {
+    //   return console.log(`Error: Password is incorrect`)
+    // }
+    // else {
+    //   this.props.history.push('/main-page')
+    // }
   }
 
   handleSubmitCommentsForm = (article_id, comment) => {
-    console.log(comment)
+    // console.log(comment)
     let commentsURL = config.API_ENDPOINT + `api/comments`
     let user_id = '1'
     fetch(commentsURL,
@@ -122,7 +148,7 @@ class App extends Component {
         return response.json()
       })
       .then(resComment => {
-        console.log(resComment)
+        // console.log(resComment)
         
         let newArticlesArray = [...this.state.articles]
         let articleToUpdate = newArticlesArray.find(article => article.id === article_id)
