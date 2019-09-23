@@ -14,7 +14,25 @@ export default class AccountSignupPage extends Component {
     handleSignupSubmit = (event) => {
         event.preventDefault()
         let user = this.state
-        this.props.onSignupSubmit(user)
+        if (!user.name) {
+            alert(`Name is required`)
+            return
+        }
+        else if (!user.email) {
+            alert(`Email is required`)
+            return
+        }
+        else if (!user.username) {
+            alert(`Username is required`)
+            return
+        }
+        else if (!user.password) {
+            alert(`Password is required`)
+            return
+        }
+        else{
+            this.props.onSignupSubmit(user)
+        }   
     }
 
     handleInputChange = (event) => {

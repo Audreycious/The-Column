@@ -29,20 +29,22 @@ export default class Article extends Component {
         event.preventDefault()
         const target = event.target
         const name = target.name
-        // console.log(name)
+        const id = target.id
+        console.log(name)
+        console.log(id)
         const newComment = this.state.commentsForArticle[name]
-        // console.log(newComment)
+        console.log(newComment)
         const newCommentsArray = [...this.state.commentsForArticle]
-        // console.log(newCommentsArray);
+        console.log(newCommentsArray);
         this.setState({
             commentsForArticle: newCommentsArray
         })
-        this.props.onCommentSubmit(name, newComment)
-        this.resetForm(name, newCommentsArray)
+        this.props.onCommentSubmit(id, newComment)
+        this.resetForm(name, id, newCommentsArray)
     }
 
-    resetForm = (i, newCommentsArray) => {
-        document.getElementById(`Article-form-${i}`).reset()
+    resetForm = (i, id, newCommentsArray) => {
+        document.getElementById(id).querySelector('form').reset()
         newCommentsArray[i] = ''
         this.setState({
             commentsForArticle: newCommentsArray
@@ -51,7 +53,7 @@ export default class Article extends Component {
 
     render() {
         const articles = this.props.articles.map((article, i) => {
-            return (<div className='Article' key={i}>
+            return (<div className='Article' id={article.id} key={i}>
                 <div className='Article-container'>
                     <div className='Article-headline'>
                         {article.headline}
@@ -63,7 +65,7 @@ export default class Article extends Component {
                 <div className='Comments-section'>
                     <Comments key={i} comments={article.comments || []} />
                 </div>
-                <form className='Comments-input-section' onSubmit={this.handleCommentSubmit} name={i} id={`Article-form-${i}`}>
+                <form className='Comments-input-section' onSubmit={this.handleCommentSubmit} name={i} id={article.id} >
                     <input 
                         type="text" 
                         placeholder='Write a comment' 

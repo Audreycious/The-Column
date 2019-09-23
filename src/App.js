@@ -62,13 +62,26 @@ class App extends Component {
 
   handleSubmitSignupForm = (user) => {
     console.log(user)
-    // this.setState({
-    //   users: [
-    //     ...this.state.users,
-    //     user
-    //   ]
-    // })
-    this.props.history.push('/main-page')
+    let usersURL = config.API_ENDPOINT + `api/users`
+    fetch(usersURL,
+      {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json'
+        },
+        body: JSON.stringify(user)
+      })
+      .then(response => {
+        if (!response.ok) {
+          return response.json().then(responseJson => Promise.reject(responseJson))
+        }
+        return response.json()
+      })
+      .then(resUser => {
+        console.log(resUser)
+        // TODO: Store the user login in the session
+        this.props.history.push('/main-page')
+      })
   }
 
   handleSubmitLoginForm = (loginInfo) => {
@@ -90,13 +103,10 @@ class App extends Component {
     }
   }
 
-  handleSubmitCommentsForm = (name, comment) => {
+  handleSubmitCommentsForm = (article_id, comment) => {
     console.log(comment)
     let commentsURL = config.API_ENDPOINT + `api/comments`
     let user_id = '1'
-    let article_id = parseInt(name) + 1
-    console.log(article_id)
-    
     fetch(commentsURL,
       {
         method: 'POST',
@@ -114,10 +124,12 @@ class App extends Component {
       .then(resComment => {
         console.log(resComment)
         
-        const newArticlesArray = [...this.state.articles]
-        const newCommentsArray = newArticlesArray[name].comments ? newArticlesArray[name].comments : []
+        let newArticlesArray = [...this.state.articles]
+        let articleToUpdate = newArticlesArray.find(article => article.id === article_id)
+        const newCommentsArray = articleToUpdate.comments ? articleToUpdate.comments : []
         const updatedCommentsArray = [...newCommentsArray, resComment.comment]
-        newArticlesArray[name].comments = updatedCommentsArray 
+        articleToUpdate.comments = updatedCommentsArray 
+        newArticlesArray = [...newArticlesArray, articleToUpdate]
         this.setState({
           articles: newArticlesArray
         })
