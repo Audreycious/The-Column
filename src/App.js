@@ -40,20 +40,19 @@ class App extends Component {
       ])
     })
     .then(([articles, comments]) => {
-      const newArticlesArray = [...articles]
       // for each comment search the article array and find the matching id, then insert the comment into the article.comments, then remake the array and set the state with the new array
       comments.forEach((comment) => {
-        let tempArticle = newArticlesArray.find((article) => comment.article_id === article.id
+        let tempArticle = articles.find((article) => comment.article_id === article.id
         )
         const newCommentsArray = tempArticle.comments ? [...tempArticle.comments, comment.comment] : [comment.comment]
-        newArticlesArray.forEach((article) => {
+        articles.forEach((article) => {
           if (article.id === comment.article_id) {
             return article.comments = newCommentsArray
           }
           return
         }) 
       })
-      this.setState({articles: newArticlesArray})
+      this.setState({articles: articles})
     })
     .catch(error => {
       alert(error.message)
