@@ -111,21 +111,6 @@ class App extends Component {
       .catch(error => {
         alert(error.error)
       })
-    // let usersArr = this.state.users
-    // let findUser = usersArr.find((user, i) => {
-    //   return user.username.toLowerCase() === loginInfo.username.toLowerCase()
-    // })
-    // console.log(findUser)
-    
-    // if (!findUser) {
-    //   return console.log(`Error: User not found`)
-    // }
-    // else if (findUser.password.toLowerCase() !== loginInfo.password.toLowerCase()) {
-    //   return console.log(`Error: Password is incorrect`)
-    // }
-    // else {
-    //   this.props.history.push('/main-page')
-    // }
   }
 
   handleSubmitCommentsForm = (article_id, comment) => {
@@ -147,14 +132,11 @@ class App extends Component {
         return response.json()
       })
       .then(resComment => {
-        // console.log(resComment)
-        
-        let newArticlesArray = [...this.state.articles]
-        let articleToUpdate = newArticlesArray.find(article => article.id === article_id)
-        const newCommentsArray = articleToUpdate.comments ? articleToUpdate.comments : []
+        let newArticlesArray = this.state.articles
+        let articleToUpdateIndex = newArticlesArray.findIndex(article => article.id === article_id)
+        const newCommentsArray = newArticlesArray[articleToUpdateIndex].comments ? newArticlesArray[articleToUpdateIndex].comments : []
         const updatedCommentsArray = [...newCommentsArray, resComment.comment]
-        articleToUpdate.comments = updatedCommentsArray 
-        newArticlesArray = [...newArticlesArray, articleToUpdate]
+        newArticlesArray[articleToUpdateIndex].comments = updatedCommentsArray 
         this.setState({
           articles: newArticlesArray
         })
