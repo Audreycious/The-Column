@@ -8,6 +8,7 @@ import LoginPage from "./components/Login-Page"
 import MainPage from "./components/Main-Page"
 import WriteArticlePage from "./components/Write-Article-Page"
 import config from "./config"
+import TokenService from "./auth/token-service"
 
 class App extends Component {
   constructor(props) {
@@ -22,8 +23,16 @@ class App extends Component {
     let articlesURL = config.API_ENDPOINT + `api/articles`
     let commentsURL = config.API_ENDPOINT + `api/comments`
     Promise.all([
-      fetch(articlesURL),
-      fetch(commentsURL)
+      fetch(articlesURL, {
+        headers: {
+          'authorization': `Bearer ${TokenService.getAuthToken()}`
+        }
+      }),
+      fetch(commentsURL, {
+        headers: {
+          'authorization': `Bearer ${TokenService.getAuthToken()}`
+        }
+      })
     ])
     .then(([articlesRes, commentsRes]) => {
       if (!articlesRes.ok) {
@@ -66,7 +75,8 @@ class App extends Component {
       {
         method: 'POST',
         headers: {
-          'content-type': 'application/json'
+          'content-type': 'application/json',
+          'authorization': `Bearer ${TokenService.getAuthToken()}`
         },
         body: JSON.stringify(user)
       })
@@ -93,7 +103,8 @@ class App extends Component {
       {
         method: 'POST',
         headers: {
-          'content-type': 'application/json'
+          'content-type': 'application/json',
+          'authorization': `Bearer ${TokenService.getAuthToken()}`
         },
         body: JSON.stringify(loginInfo)
       })
@@ -121,7 +132,8 @@ class App extends Component {
       {
         method: 'POST',
         headers: {
-          'content-type': 'application/json'
+          'content-type': 'application/json',
+          'authorization': `Bearer ${TokenService.getAuthToken()}`
         },
         body: JSON.stringify({ comment, article_id, user_id })
       })
@@ -155,6 +167,7 @@ class App extends Component {
       method: 'POST',
       headers: {
         'content-type': "application/json",
+        'authorization': `Bearer ${TokenService.getAuthToken()}`
       },
       body: JSON.stringify(article)
     })
