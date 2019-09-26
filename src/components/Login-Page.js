@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import TokenService from "../auth/token-service";
+import { makeAuthToken, saveAuthToken } from "../auth/token-service";
 
 export default class LoginPage extends Component {
     constructor(props) {
@@ -22,8 +22,8 @@ export default class LoginPage extends Component {
     handleLoginSubmit = (event) => {
         event.preventDefault()
         let loginInfo = this.state
-        TokenService.saveAuthToken(
-            TokenService.makeBasicAuthToken(loginInfo.username, loginInfo.password)
+        saveAuthToken(
+            makeAuthToken(loginInfo.username, loginInfo.password)
         )
         this.props.onLoginSubmit(loginInfo)
     }

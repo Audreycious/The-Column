@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { makeAuthToken } from "../auth/token-service"
+import config from "../config"
 
 export default class AccountSignupPage extends Component {
     constructor(props) {
@@ -31,6 +33,7 @@ export default class AccountSignupPage extends Component {
             return
         }
         else{
+            window.localStorage.setItem(config.TOKEN_KEY, makeAuthToken(user.username, user.password))
             this.props.onSignupSubmit(user)
         }   
     }

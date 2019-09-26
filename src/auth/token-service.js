@@ -1,15 +1,18 @@
 import config from '../config'
+function makeAuthToken(userName, password) {
+        return (`${userName}:${password}`)
+}
 
-const TokenService = {
-    makeBasicAuthToken(userName, password) {
-        return window.btoa(`${userName}:${password}`)
-      },
-    saveAuthToken(token) {
+function saveAuthToken(token) {
         window.localStorage.setItem(config.TOKEN_KEY, token)
-    },
-    getAuthToken() {
+}
+
+function getAuthToken() {
         return window.localStorage.getItem(config.TOKEN_KEY)
-    },
 }
   
-module.exports = TokenService
+export {
+    makeAuthToken,
+    saveAuthToken,
+    getAuthToken
+}

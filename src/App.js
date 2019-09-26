@@ -8,7 +8,7 @@ import LoginPage from "./components/Login-Page"
 import MainPage from "./components/Main-Page"
 import WriteArticlePage from "./components/Write-Article-Page"
 import config from "./config"
-import TokenService from "./auth/token-service"
+import { getAuthToken } from "./auth/token-service"
 
 class App extends Component {
   constructor(props) {
@@ -25,12 +25,12 @@ class App extends Component {
     Promise.all([
       fetch(articlesURL, {
         headers: {
-          'authorization': `Bearer ${TokenService.getAuthToken()}`
+          'authorization': `Bearer ${getAuthToken()}`
         }
       }),
       fetch(commentsURL, {
         headers: {
-          'authorization': `Bearer ${TokenService.getAuthToken()}`
+          'authorization': `Bearer ${getAuthToken()}`
         }
       })
     ])
@@ -76,7 +76,7 @@ class App extends Component {
         method: 'POST',
         headers: {
           'content-type': 'application/json',
-          'authorization': `Bearer ${TokenService.getAuthToken()}`
+          'authorization': `Bearer ${getAuthToken()}`
         },
         body: JSON.stringify(user)
       })
@@ -104,7 +104,7 @@ class App extends Component {
         method: 'POST',
         headers: {
           'content-type': 'application/json',
-          'authorization': `Bearer ${TokenService.getAuthToken()}`
+          'authorization': `Bearer ${getAuthToken()}`
         },
         body: JSON.stringify(loginInfo)
       })
@@ -133,7 +133,7 @@ class App extends Component {
         method: 'POST',
         headers: {
           'content-type': 'application/json',
-          'authorization': `Bearer ${TokenService.getAuthToken()}`
+          'authorization': `Bearer ${getAuthToken()}`
         },
         body: JSON.stringify({ comment, article_id, user_id })
       })
@@ -158,16 +158,13 @@ class App extends Component {
 
   handleSubmitWriteForm = (article) => {
     let articlesURL = config.API_ENDPOINT + `api/articles`
-
     // TODO: implement user_id addition when user accounts live
-    const tempUserID = '1'
-    article.user_id = tempUserID
     article.created = new Date()
     fetch(articlesURL, {
       method: 'POST',
       headers: {
         'content-type': "application/json",
-        'authorization': `Bearer ${TokenService.getAuthToken()}`
+        'authorization': `Bearer ${getAuthToken()}`
       },
       body: JSON.stringify(article)
     })
