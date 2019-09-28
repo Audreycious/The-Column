@@ -33,22 +33,14 @@ export default class Article extends Component {
         console.log(name)
         console.log(id)
         const newComment = this.state.commentsForArticle[name]
-        console.log(newComment)
-        const newCommentsArray = [...this.state.commentsForArticle]
-        console.log(newCommentsArray);
-        this.setState({
-            commentsForArticle: newCommentsArray
-        })
+        console.log(newComment)       
         this.props.onCommentSubmit(id, newComment)
-        this.resetForm(name, id, newCommentsArray)
+        this.resetForm(id)
     }
 
-    resetForm = (i, id, newCommentsArray) => {
+    resetForm = (id) => {
         document.getElementById(id).querySelector('form').reset()
-        newCommentsArray[i] = ''
-        this.setState({
-            commentsForArticle: newCommentsArray
-        })
+
     }
 
     render() {
@@ -60,6 +52,9 @@ export default class Article extends Component {
                     </div>
                     <div className='Article-print'> 
                         {article.print}
+                    </div>
+                    <div className="Article-username">
+                        {article.username}
                     </div>
                 </div>
                 <div className='Comments-section'>
