@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { makeAuthToken } from "../auth/token-service"
+import { makeAuthToken, getAuthToken } from "../auth/token-service"
 import config from "../config"
 
 export default class AccountSignupPage extends Component {
@@ -13,6 +13,10 @@ export default class AccountSignupPage extends Component {
         }
     }
 
+    handleSubmitSignupForm = (user) => {
+        console.log(user)
+        
+    }
     handleSignupSubmit = (event) => {
         event.preventDefault()
         let user = this.state
@@ -34,7 +38,30 @@ export default class AccountSignupPage extends Component {
         }
         else{
             window.localStorage.setItem(config.TOKEN_KEY, makeAuthToken(user.username, user.password))
-            this.props.onSignupSubmit(user)
+            let usersURL = config.API_ENDPOINT + `api/users`
+            fetch(usersURL,
+                {
+                    method: 'POST',
+                    headers: {
+                    'content-type': 'application/json',
+                    'authorization': `Bearer ${getAuthToken()}`
+                    },
+                    body: JSON.stringify(user)
+                })
+                .then(response => {
+                    if (!response.ok) {
+                    return response.json().then(responseJson => Promise.reject(responseJson))
+                    }
+                    return response.json()
+                })
+                .then(resUser => {
+                    console.log(resUser)
+                    // TODO: Store the user login in the session
+                    this.props.history.push('/main-page')
+                })
+                .catch(error => {
+                    alert(error.error)
+                })
         }   
     }
 

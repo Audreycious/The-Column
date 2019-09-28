@@ -10,9 +10,19 @@ function saveAuthToken(token) {
 function getAuthToken() {
         return window.localStorage.getItem(config.TOKEN_KEY)
 }
+
+function hasAuthToken() {
+    return !!getAuthToken()
+}
+
+function clearAuthToken() {
+    window.localStorage.removeItem(config.TOKEN_KEY)
+}
   
 export {
     makeAuthToken,
     saveAuthToken,
-    getAuthToken
+    getAuthToken,
+    hasAuthToken,
+    clearAuthToken
 }

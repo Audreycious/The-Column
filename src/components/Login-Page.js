@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { makeAuthToken, saveAuthToken } from "../auth/token-service";
+import { makeAuthToken, saveAuthToken, getAuthToken } from "../auth/token-service";
+import config from '../config'
 
 export default class LoginPage extends Component {
     constructor(props) {
@@ -21,11 +22,33 @@ export default class LoginPage extends Component {
 
     handleLoginSubmit = (event) => {
         event.preventDefault()
-        let loginInfo = this.state
         saveAuthToken(
-            makeAuthToken(loginInfo.username, loginInfo.password)
+            makeAuthToken(this.state.username, this.state.password)
         )
-        this.props.onLoginSubmit(loginInfo)
+        let loginURL = config.API_ENDPOINT + `api/login`
+        
+        fetch(loginURL,
+            {
+                method: 'POST',
+                headers: {
+                'content-type': 'application/json',
+                'authorization': `Bearer ${getAuthToken()}`
+                },
+            })
+            .then(response => {
+                if (!response.ok) {
+                return response.json().then(responseJson => Promise.reject(responseJson))
+                }
+                return response.json()
+            })
+            .then(response => {
+                console.log(response)
+                // TODO: Store the user login in the session
+                this.props.history.push('/main-page')
+            })
+            .catch(error => {
+                alert(error)
+            })
     }
 
     render() {
