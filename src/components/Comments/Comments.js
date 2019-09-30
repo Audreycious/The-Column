@@ -1,5 +1,6 @@
 import React from 'react';
 import uuid from "uuid/v4"
+import './Comments.css'
 
 export default function Comments(props) {
     const comments = props.comments.map((comment, i) => {
@@ -11,8 +12,8 @@ export default function Comments(props) {
         }
         return (
             <div className='Comment' key={id}>
-                <div className='Comment-text'>{comment}</div>
-                <div className="Comment-username" >{username ? username : null}</div>
+                {comment}
+                <p className="Comment-username" >{username ? `by ${username}` : null}</p>
             </div>
         )
     }

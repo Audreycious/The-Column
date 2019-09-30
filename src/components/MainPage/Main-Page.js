@@ -134,7 +134,7 @@ class MainPage extends Component {
                     render={() => <section className='Main-page'>
                     <div className='Main-page-toolbar'>
                         <Link to="/main-page/write-article-page" >Write Article</Link>
-                        <Link to="" >Filter</Link>
+                        {/* <Link to="" >Filter</Link> */}
                         <Link to="" >Sort</Link>
                     </div>
                     <div className='Main-container'>

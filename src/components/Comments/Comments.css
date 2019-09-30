@@ -1,0 +1,27 @@
+.Comments-input-section {
+    height: 20%;
+}
+
+.Comments-input-section input {
+    width: 100%;
+}
+
+.Comment {
+    position: relative;
+    min-height: 30px;
+    border: 1px solid black;
+    margin: 1% 0 0 0;
+    padding: 1% 7%;
+    font-size: 10pt;
+    overflow-wrap: break-word;
+    overflow: hidden;
+    background-color: #f8f9d2;
+    background-image: linear-gradient(315deg, #f8f9d2 0%, #e8dbfc 74%);
+    color: black;
+}
+
+.Comment-username {
+    font-style: italic;
+    text-align: right;
+    font-size: 10pt;
+}

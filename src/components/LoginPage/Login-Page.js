@@ -64,7 +64,7 @@ export default class LoginPage extends Component {
                         <label htmlFor="password">Password:</label>
                         <input type="password" name="password" value={this.state.password} onChange={this.handleInputChange} placeholder="Enter password" />
                     </fieldset>
-                    <p>Welcome back</p>
+                    <p>Welcome back, columnist</p>
                     <button type="submit">Login</button>
                     </form>
                 </div>

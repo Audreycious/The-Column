@@ -1,28 +1,40 @@
 .Login-page {
     display: flex;
-    padding: 10% 0;
-}
-
-.Login-form {
     padding: 10% 0 0 0;
 }
 
-fieldset {
+.Login-page form {
+    padding: 10% 0 0 0;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.Login-page fieldset {
     display: flex;
     flex-direction: column;
     height: 100%;
     margin: 0;
     border: none;
+    padding: 0 10%;
 }
 
-label, input {
+.Login-page label, .Login-page input {
     padding: 1% 0 0 1%;
     margin: 0;
     text-align: start;
     width: 100%;
+    font-size: 4.5vmin;
 }
 
-legend {
-    margin: 0 0 20% 0;
-    font-size: 20pt;
+.Login-page legend {
+    margin: 0 0 5% 0;
+    font-size: 6vmin;
+}
+
+.Login-page button {
+    font-size: 4.5vmin;
+}
+
+.Login-page p {
+    padding: 5%;
 }

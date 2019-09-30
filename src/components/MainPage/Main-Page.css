@@ -12,9 +12,6 @@
     width: 90vw;
     background-color: #a0a0a0;
     overflow: scroll;
-}
-
-p {
-    margin: 0;
+    height: 95%;
 }
 

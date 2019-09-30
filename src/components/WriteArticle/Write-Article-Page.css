@@ -1,14 +1,14 @@
 
 .Write-article-page {
     display: flex;
-    padding: 10% 0;
-}
-
-.Article-form {
     padding: 10% 0 0 0;
 }
 
-.Article-form fieldset {
+form {
+    padding: 10% 0 0 0;
+}
+
+fieldset {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,15 +17,19 @@
     border: none;
 }
 
-.Article-form fieldset label, .Article-form fieldset input {
+label, input, textarea {
     padding: 1% 0 0 1%;
     margin: 0;
     width: 100%;
     text-align: start;
 }
 
-.Article-headline-input::placeholder, .Article-print-input::placeholder {
+::placeholder {
     padding: 0 0 10%;
+}
+
+textarea::placeholder {
+    font-size: 4.5vmin;
 }
 
 .Article-headline-input {
@@ -35,4 +39,8 @@
 .Article-print-input {
     height: 30vh;
     margin: 0;
+}
+
+button {
+    margin: 5% 0 0 0;
 }

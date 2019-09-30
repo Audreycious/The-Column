@@ -1,25 +1,40 @@
 .Account-signup-page {
-    display: flex;
-    padding: 10% 0;
-  }
-  
-  .Signup-form {
-    padding: 10% 0 0 0;
-  }
-  
-  .Signup-form fieldset {
-    display: flex;
-    flex-direction: column;
-    width: 95%;
-    height: 100%;
-    padding: 0 0 0 5%;
-    margin: 0;
-    border: none;
-  }
-  
-  .Signup-form fieldset label, .Signup-form fieldset input {
-    padding: 1% 0 0 1%;
-    margin: 0;
-    text-align: start;
-    width: 90%;
-  }
+  display: flex;
+  padding: 10% 0 0 0;
+}
+
+.Article-signup-page form {
+  padding: 10% 0 0 0;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.Article-signup-page fieldset {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0;
+  border: none;
+  padding: 0 10%;
+}
+
+.Article-signup-page label, .Article-signup-page input {
+  padding: 1% 0 0 1%;
+  margin: 0;
+  text-align: start;
+  width: 100%;
+  font-size: 4.5vmin;
+}
+
+.Article-signup-page legend {
+  margin: 0 0 5% 0;
+  font-size: 6vmin;
+}
+
+.Article-signup-page button {
+  font-size: 4.5vmin;
+}
+
+.Article-signup-page p {
+  padding: 5%;
+}

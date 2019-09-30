@@ -48,14 +48,13 @@ export default class Article extends Component {
             return (<div className='Article' id={article.id} key={i}>
                 <div className='Article-container'>
                     <div className='Article-headline'>
-                        {article.headline}
+                    {article.headline}
+                    <p className='Article-username'>by {article.username}</p>        
                     </div>
-                    <div className='Article-print'> 
+                    <div className='Article-print-container'> 
                         {article.print}
                     </div>
-                    <div className="Article-username">
-                        {article.username}
-                    </div>
+                    
                 </div>
                 <div className='Comments-section'>
                     <Comments key={i} comments={article.comments || []} />

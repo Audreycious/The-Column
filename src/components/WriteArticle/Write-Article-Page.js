@@ -36,7 +36,7 @@ export default class WriteArticlePage extends Component {
                         <label htmlFor="headline">Headline:</label>
                         <input type="text" name="headline" className="Article-headline-input" value={this.state.headline} onChange={this.handleInputChange} placeholder="Enter your headline" />
                         <label htmlFor="print">Print:</label>
-                        <input type="text" name="print" required className="Article-print-input" value={this.state.print} onChange={this.handleInputChange} placeholder="Enter your content here" />
+                        <textarea name="print" required className="Article-print-input" value={this.state.print} onChange={this.handleInputChange} placeholder="Enter your content here" />
                     </fieldset>
                     <button type="submit">Hand it in to the Editor</button>
                     </form>

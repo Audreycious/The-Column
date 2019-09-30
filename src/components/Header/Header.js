@@ -13,8 +13,14 @@ export default class Header extends Component {
     render() {
         return (
             <header className="App-header">
-                <a href="https://the-column-app.now.sh/main-page"><h1>The Column</h1></a>
-                {window.location.pathname === "/main-page" ? <button onClick={this.handleLogout} >Logout</button> : null}
+                <div className="logout-container">
+                </div>
+                <div className="home-container">
+                    <a href="https://the-column-app.now.sh/main-page"><h1>The Column</h1></a>
+                </div>
+                <div className="logout-container">
+                    {window.location.pathname === "/main-page" ? <button onClick={this.handleLogout} >Logout</button> : null}
+                </div>
             </header>
         )
     }
