@@ -1,0 +1,20 @@
+.Main-page-toolbar {
+    height: 5%;
+    display: flex;
+    margin: 0 auto;
+    width: 60%;
+    justify-content: space-evenly;
+}
+
+.Main-container {
+    margin: 0 auto;
+    text-align: center;
+    width: 90vw;
+    background-color: #a0a0a0;
+    overflow: scroll;
+}
+
+p {
+    margin: 0;
+}
+

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Comments from "./Comments"
+import Comments from "../Comments/Comments"
 import "./Article.css";
 
 export default class Article extends Component {

@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import './Landing-Page.css'
 
 export default function() {
     return (
         <section className="Landing-page">
-            <div className='Sidebar-link-container'>
+            <div className='Main-page-toolbar'>
                 <Link to="/login-page">Login</Link>
                 <Link to="/account-signup-page">Signup</Link>
             </div>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { makeAuthToken, getAuthToken } from "../auth/token-service"
-import config from "../config"
+import { makeAuthToken, getAuthToken } from "../../auth/token-service"
+import config from "../../config"
 
 export default class AccountSignupPage extends Component {
     constructor(props) {

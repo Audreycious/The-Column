@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import Article from "./Article";
+import Article from "../Article/Article";
 import { Link, Switch, Route } from "react-router-dom";
-import config from "../config"
-import { getAuthToken } from "../auth/token-service"
-import WriteArticlePage from "./Write-Article-Page"
-import PrivateRoute from '../utils/PrivateRoute'
+import config from "../../config"
+import { getAuthToken } from "../../auth/token-service"
+import WriteArticlePage from "../WriteArticle/Write-Article-Page"
+import PrivateRoute from '../../utils/PrivateRoute'
+import './Main-Page.css'
 
 
 class MainPage extends Component {

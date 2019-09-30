@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { makeAuthToken, saveAuthToken, getAuthToken } from "../auth/token-service";
-import config from '../config'
+import { makeAuthToken, saveAuthToken, getAuthToken } from "../../auth/token-service";
+import config from '../../config'
+import './Login-Page.css'
 
 export default class LoginPage extends Component {
     constructor(props) {

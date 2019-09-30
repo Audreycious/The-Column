@@ -1,0 +1,13 @@
+.App-header {
+    background-color: #4e4e4e;
+    height: 10vh;
+    color: white;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    margin: 0;
+}

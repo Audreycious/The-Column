@@ -1,0 +1,28 @@
+.Login-page {
+    display: flex;
+    padding: 10% 0;
+}
+
+.Login-form {
+    padding: 10% 0 0 0;
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin: 0;
+    border: none;
+}
+
+label, input {
+    padding: 1% 0 0 1%;
+    margin: 0;
+    text-align: start;
+    width: 100%;
+}
+
+legend {
+    margin: 0 0 20% 0;
+    font-size: 20pt;
+}

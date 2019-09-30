@@ -3,11 +3,12 @@ import { Switch } from "react-router"
 import { withRouter, Route } from "react-router-dom"
 import './App.css';
 import PrivateRoute from './utils/PrivateRoute'
-import LandingPage from "./components/Landing-Page"
-import AccountSignupPage from "./components/Account-Signup-Page"
-import LoginPage from "./components/Login-Page"
-import MainPage from "./components/Main-Page"
+import LandingPage from "./components/LandingPage/Landing-Page"
+import AccountSignupPage from "./components/AccountSignupPage/Account-Signup-Page"
+import LoginPage from "./components/LoginPage/Login-Page"
+import MainPage from "./components/MainPage/Main-Page"
 import Header from "./components/Header/Header";
+import './components/Header/Header.css'
 
 
 class App extends Component {
