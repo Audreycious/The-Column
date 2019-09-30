@@ -55,7 +55,9 @@ export default class LoginPage extends Component {
     render() {
         return (
             <section className='Login-page'>
-                <div className='Main-container'>
+                <div className='toolbar'>
+                </div>
+                <div className='Main-container Login-container'>
                     <form action="#" className="Login-form" onSubmit={this.handleLoginSubmit}>
                     <fieldset>
                         <legend>Login to The Column</legend>

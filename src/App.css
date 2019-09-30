@@ -13,3 +13,11 @@ main {
 section {
   height: 100%;
 }
+
+.toolbar {
+  height: 5%;
+  display: flex;
+  margin: 0 auto;
+  width: 60%;
+  justify-content: space-evenly;
+}

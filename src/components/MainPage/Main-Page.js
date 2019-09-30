@@ -132,7 +132,7 @@ class MainPage extends Component {
                 <Route 
                     exact path='/main-page'
                     render={() => <section className='Main-page'>
-                    <div className='Main-page-toolbar'>
+                    <div className='toolbar'>
                         <Link to="/main-page/write-article-page" >Write Article</Link>
                         {/* <Link to="" >Filter</Link> */}
                         <Link to="" >Sort</Link>
