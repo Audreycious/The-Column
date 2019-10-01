@@ -15,6 +15,7 @@ class MainPage extends Component {
           articles: [],
         }
     }
+    // sort the articles in the state with a prop button being pressed
 
     componentDidMount() {
         let articlesURL = config.API_ENDPOINT + `api/articles`
@@ -126,6 +127,40 @@ class MainPage extends Component {
         })
     }
 
+    sortArticlesByPopular = () => {
+      let articles = this.state.articles
+      const sortedArticles = articles.sort((a, b) => {
+        let aComments 
+        let bComments
+        if (a.comments) {
+          aComments = a.comments.length
+        } else aComments = 0
+        if (b.comments) {
+          bComments = b.comments.length
+        } else bComments = 0
+        console.log(aComments)
+        console.log(bComments)
+        
+        
+        return bComments - aComments
+      })
+      this.setState({
+        articles: sortedArticles
+      }, () => console.log(this.state.articles)
+      )
+    }
+
+    sortArticlesByCreated = () => {
+      let articles = this.state.articles
+      const sortedArticles = articles.sort((a, b) => {
+        return new Date(b.created) - new Date(a.created)
+      })
+      this.setState({
+        articles: sortedArticles
+      }, () => console.log(this.state.articles)
+      )
+    }
+
     render() {
         return (
             <Switch>
@@ -135,7 +170,8 @@ class MainPage extends Component {
                     <div className='toolbar'>
                         <Link to="/main-page/write-article-page" >Write Article</Link>
                         {/* <Link to="" >Filter</Link> */}
-                        <Link to="" >Sort</Link>
+                        Sort: <button className="sort-created" onClick={this.sortArticlesByCreated} >Created</button>
+                        <button className="sort-popular" onClick={this.sortArticlesByPopular}>Popular</button>
                     </div>
                     <div className='Main-container'>
                         <Article onCommentSubmit={this.handleSubmitCommentsForm} articles={this.state.articles}/>
