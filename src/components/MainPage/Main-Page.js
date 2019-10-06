@@ -6,6 +6,7 @@ import { getAuthToken } from "../../auth/token-service"
 import WriteArticlePage from "../WriteArticle/Write-Article-Page"
 import PrivateRoute from '../../utils/PrivateRoute'
 import './Main-Page.css'
+import ApiService from '../../api/api-service';
 
 
 class MainPage extends Component {
@@ -18,19 +19,9 @@ class MainPage extends Component {
     // sort the articles in the state with a prop button being pressed
 
     componentDidMount() {
-        let articlesURL = config.API_ENDPOINT + `api/articles`
-        let commentsURL = config.API_ENDPOINT + `api/comments`
         Promise.all([
-          fetch(articlesURL, {
-            headers: {
-              'authorization': `Bearer ${getAuthToken()}`
-            }
-          }),
-          fetch(commentsURL, {
-            headers: {
-              'authorization': `Bearer ${getAuthToken()}`
-            }
-          })
+          ApiService.getAllArticles(window.localStorage.getItem(window.localStorage.getItem(config.TOKEN_KEY))),
+          ApiService.getAllComments(window.localStorage.getItem(config.TOKEN_KEY))
         ])
         .then(([articlesRes, commentsRes]) => {
           if (!articlesRes.ok) {

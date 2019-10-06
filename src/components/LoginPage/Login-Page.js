@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
-import { makeAuthToken, saveAuthToken, getAuthToken } from "../../auth/token-service";
-import config from '../../config'
+import { saveAuthToken } from "../../auth/token-service";
+import AuthApiService from "../../auth/auth-service"
 import './Login-Page.css'
 
 export default class LoginPage extends Component {
     constructor(props) {
         super(props)
         this.state = {
-          username: [],
-          password: [],
+          username: "",
+          password: "",
         }
     }
 
@@ -23,28 +23,15 @@ export default class LoginPage extends Component {
 
     handleLoginSubmit = (event) => {
         event.preventDefault()
-        saveAuthToken(
-            makeAuthToken(this.state.username, this.state.password)
-        )
-        let loginURL = config.API_ENDPOINT + `api/login`
+        const credentials = { username: this.state.username, password: this.state.password }
         
-        fetch(loginURL,
-            {
-                method: 'POST',
-                headers: {
-                'content-type': 'application/json',
-                'authorization': `Bearer ${getAuthToken()}`
-                },
-            })
+        AuthApiService.postLogin(credentials)
             .then(response => {
-                if (!response.ok) {
-                return response.json().then(responseJson => Promise.reject(responseJson))
-                }
-                return response.json()
-            })
-            .then(response => {
-                console.log(response)
-                // TODO: Store the user login in the session
+                this.setState({
+                    username: "",
+                    password: ""
+                })
+                saveAuthToken(response.authToken)
                 this.props.history.push('/main-page')
             })
             .catch(error => {
