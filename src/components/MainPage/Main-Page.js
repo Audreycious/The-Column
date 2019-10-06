@@ -135,7 +135,8 @@ class MainPage extends Component {
                     <div className='toolbar'>
                         <Link to="/main-page/write-article-page" >Write Article</Link>
                         {/* <Link to="" >Filter</Link> */}
-                        <Link to="" >Sort</Link>
+                        Sort: <button className="sort-created" onClick={this.sortArticlesByCreated} >Created</button>
+                        <button className="sort-popular" onClick={this.sortArticlesByPopular}>Popular</button>
                     </div>
                     <div className='Main-container'>
                         <Article onCommentSubmit={this.handleSubmitCommentsForm} articles={this.state.articles}/>
