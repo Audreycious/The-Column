@@ -14,10 +14,6 @@ export default class AccountSignupPage extends Component {
         }
     }
 
-    handleSubmitSignupForm = (user) => {
-        console.log(user)
-        
-    }
     handleSignupSubmit = (event) => {
         event.preventDefault()
         let user = this.state
@@ -55,10 +51,8 @@ export default class AccountSignupPage extends Component {
                     }
                     return response.json()
                 })
-                .then(resUser => {
-                    console.log(resUser)
-                    // TODO: Store the user login in the session
-                    this.props.history.push('/main-page')
+                .then(() => {
+                    this.props.history.push('/login-page')
                 })
                 .catch(error => {
                     alert(error.error)

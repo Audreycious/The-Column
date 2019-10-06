@@ -30,10 +30,7 @@ export default class Article extends Component {
         const target = event.target
         const name = target.name
         const id = target.id
-        console.log(name)
-        console.log(id)
         const newComment = this.state.commentsForArticle[name]
-        console.log(newComment)       
         this.props.onCommentSubmit(id, newComment)
         this.resetForm(id)
     }

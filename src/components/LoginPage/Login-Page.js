@@ -43,8 +43,6 @@ export default class LoginPage extends Component {
                 return response.json()
             })
             .then(response => {
-                console.log(response)
-                // TODO: Store the user login in the session
                 this.props.history.push('/main-page')
             })
             .catch(error => {

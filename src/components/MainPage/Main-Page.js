@@ -84,19 +84,15 @@ class MainPage extends Component {
             return response.json()
         })
         .then(article => {
-            console.log(article)
             const newArticlesArray = [...this.state.articles]
             const updatedArticlesArray = [article, ...newArticlesArray]
-            console.log(updatedArticlesArray)
             this.setState({
             articles: updatedArticlesArray
             }, () => this.props.history.push('/main-page'))
-            console.log(this.state.articles)
         })
     }
 
     handleSubmitCommentsForm = (article_id, comment) => {
-        // console.log(comment)
         let commentsURL = config.API_ENDPOINT + `api/comments`
         fetch(commentsURL,
             {
@@ -124,6 +120,34 @@ class MainPage extends Component {
                 articles: newArticlesArray
             })
         })
+    }
+
+    sortArticlesByPopular = () => {
+      let articles = this.state.articles
+      const sortedArticles = articles.sort((a, b) => {
+        let aComments 
+        let bComments
+        if (a.comments) {
+          aComments = a.comments.length
+        } else aComments = 0
+        if (b.comments) {
+          bComments = b.comments.length
+        } else bComments = 0        
+        return bComments - aComments
+      })
+      this.setState({
+        articles: sortedArticles
+      })
+    }
+
+    sortArticlesByCreated = () => {
+      let articles = this.state.articles
+      const sortedArticles = articles.sort((a, b) => {
+        return new Date(b.created) - new Date(a.created)
+      })
+      this.setState({
+        articles: sortedArticles
+      })
     }
 
     render() {
