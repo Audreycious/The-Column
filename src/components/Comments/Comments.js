@@ -6,10 +6,8 @@ export default function Comments(props) {
     const comments = props.comments.map((comment, i) => {
         const id = uuid()
         let username
-        if (comment.username) {
-            username = comment.username
-            comment = comment.comment
-        }
+        username = comment.username
+        comment = comment.comment
         return (
             <div className='Comment' key={id}>
                 {comment}

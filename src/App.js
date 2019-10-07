@@ -31,7 +31,7 @@ class App extends Component {
               render={({history}) => <LoginPage history={history} /> }
             />
             <PrivateRoute 
-              render={(props) => <MainPage {...props} /> } 
+              component={(props) => <MainPage {...props} /> } 
               path='/main-page' 
             />
           </Switch>
