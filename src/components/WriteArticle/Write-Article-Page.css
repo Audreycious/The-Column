@@ -45,3 +45,20 @@
 .Write-article-page button {
     margin: 5% 0 0 0;
 }
+
+.Write-article-page p {
+    margin: 0;
+    align-self: center;
+}
+
+.red {
+    color: red;
+}
+
+.yellow {
+    color: rgb(223, 223, 24);
+}
+
+.green {
+    color: green;
+}

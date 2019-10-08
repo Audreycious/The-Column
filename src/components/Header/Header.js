@@ -4,7 +4,6 @@ import history from "../../history";
 
 
 export default class Header extends Component {
-
     handleLogout = () => {
         clearAuthToken()
         history.push('/')

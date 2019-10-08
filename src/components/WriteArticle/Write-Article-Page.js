@@ -7,7 +7,7 @@ export default class WriteArticlePage extends Component {
         super(props)
         this.state = {
           headline: [],
-          print: []
+          print: [],
         }
     }   
 
@@ -22,6 +22,9 @@ export default class WriteArticlePage extends Component {
 
     handleWriteSubmit = (event) => {
         event.preventDefault()
+        if (this.props.articlesLeft === 0) {
+            return alert(`You have no articles remaining`)
+        }
         let articleInfo = this.state
         this.props.onWriteSubmit(articleInfo)
     }
@@ -30,7 +33,8 @@ export default class WriteArticlePage extends Component {
         return (
             <section className='Write-article-page'>
                 <div className="toolbar">
-
+                <p>Articles remaining: </p>
+                <p className={`` +(this.props.articlesLeft >= 3 ? 'green' : '') +(this.props.articlesLeft === 2 ? 'yellow' : '') +(this.props.articlesLeft <= 1 ? 'red' : '') +``}>{this.props.articlesLeft}</p>
                 </div>
                 <div className='Main-container Write-article-container'>
                     <form action="#" className="Article-form" onSubmit={this.handleWriteSubmit}>
