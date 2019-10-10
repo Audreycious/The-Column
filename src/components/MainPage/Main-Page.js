@@ -8,6 +8,10 @@ import './Main-Page.css'
 
 class MainPage extends Component {
 
+    // componentDidMount() {
+    //     this.props.fetchArticles()
+    // }
+
     render() {
         return (
             <Switch>

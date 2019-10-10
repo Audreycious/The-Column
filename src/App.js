@@ -23,7 +23,7 @@ class App extends Component {
     }
   }   
 
-  componentDidMount() {
+  fetchArticles = () => {
     let articlesURL = config.API_ENDPOINT + `api/articles`
     let commentsURL = config.API_ENDPOINT + `api/comments`
     Promise.all([
@@ -182,7 +182,7 @@ handleSubmitCommentsForm = (article_id, comment) => {
             />
             <Route 
               path='/login-page' 
-              render={({history}) => <LoginPage history={history} /> }
+              render={({history}) => <LoginPage history={history} fetchArticles={this.fetchArticles} /> }
             />
             <PrivateRoute 
               component={(props) => <MainPage 
@@ -193,6 +193,7 @@ handleSubmitCommentsForm = (article_id, comment) => {
                 comments={this.state.comments}
                 onSubmitComments={this.handleSubmitCommentsForm}
                 onWriteSubmit={this.handleSubmitWriteForm}
+                fetchArticles={this.fetchArticles}
               /> } 
               path='/main-page' 
             />
