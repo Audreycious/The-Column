@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Switch } from "react-router"
 import { withRouter, Route } from "react-router-dom"
 import './App.css';
@@ -11,9 +11,7 @@ import Header from "./components/Header/Header";
 import './components/Header/Header.css'
 
 
-class App extends Component {
-  
-  render() {
+function App() {
     return (
       <div className="App">
         <Header />
@@ -28,7 +26,7 @@ class App extends Component {
             />
             <Route 
               path='/login-page' 
-              render={({history}) => <LoginPage history={history} fetchArticles={this.fetchArticles} /> }
+              render={({history}) => <LoginPage history={history} /> }
             />
             <PrivateRoute 
               component={(props) => <MainPage 
@@ -39,8 +37,7 @@ class App extends Component {
           </Switch>
         </main>
       </div>
-    );
-  }
+    )
 }
 
 export default withRouter(App)

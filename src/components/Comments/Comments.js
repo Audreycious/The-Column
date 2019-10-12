@@ -8,18 +8,23 @@ export default function Comments(props) {
         let username
         username = comment.username
         comment = comment.comment
+        
         return (
             <div className='Comment' key={id}>
                 {comment}
                 <p className="Comment-username" >{username ? `by ${username}` : null}</p>
             </div>
         )
+    })
+
+    let display    
+    if (!!comments.length) {
+        display = comments
     }
-        
-    )
+    else display = <p className='comments-placeholder'>Be the first to comment!</p>
     return (
         <React.Fragment>
-            {comments}
+            {display}
         </React.Fragment>
     )
 } 

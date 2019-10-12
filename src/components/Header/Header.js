@@ -18,7 +18,7 @@ export default class Header extends Component {
                     <h1>The Column</h1>
                 </div>
                 <div className="logout-container">
-                    {window.location.pathname === "/main-page" ? <button onClick={this.handleLogout} >Logout</button> : null}
+                    {window.location.pathname === "/main-page" || window.location.pathname === "/main-page/write-article-page" ? <button onClick={this.handleLogout} >Logout</button> : null}
                 </div>
             </header>
         )

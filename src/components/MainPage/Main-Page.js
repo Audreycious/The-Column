@@ -14,11 +14,11 @@ class MainPage extends Component {
         this.state = {
           articles: [],
           comments: [],
-          articlesLeft: 3,
+          articlesLeft: Number,
         }
       }   
     
-      componentDidMount() {
+    componentDidMount() {
         let articlesURL = config.API_ENDPOINT + `api/articles`
         let commentsURL = config.API_ENDPOINT + `api/comments`
         Promise.all([
@@ -47,8 +47,12 @@ class MainPage extends Component {
             commentsRes.json()
           ])
         })
-        .then(([articles, comments]) => {
+        .then(([articlesResJson, comments]) => {
           // for each comment search the article array and find the matching id, then insert the comment into the article.comments, then remake the array and set the state with the new array
+          let articles = articlesResJson.articles
+          console.log(articlesResJson);
+          
+          let articlesLeft = articlesResJson.articlesLeft
           comments.forEach((comment) => {
             let tempArticle = articles.find((article) => comment.article_id === article.id
             )
@@ -59,23 +63,27 @@ class MainPage extends Component {
               }
             }) 
           })
-          this.setState({articles: articles})
+          console.log(articlesLeft);
+          
+          this.setState({articles: articles,
+        articlesLeft: articlesLeft})
         })
         .catch(error => {
           alert(error.message)
         })    
       }
     
-      handleArticleUsed = () => {
+    handleArticleUsed = () => {
         if (this.state.articlesLeft !== 0) {
           let newArticlesLeft = this.state.articlesLeft - 1
           this.setState({
             articlesLeft: newArticlesLeft,
           })
         }
-      }
+        else alert(`No articles remaining`)
+    }
     
-      handleSubmitWriteForm = (article) => {
+    handleSubmitWriteForm = (article) => {
         let articlesURL = config.API_ENDPOINT + `api/articles`
         article.created = new Date()
         this.handleArticleUsed()
@@ -133,29 +141,25 @@ class MainPage extends Component {
         })
     }
 
-    sortArticlesByPopular = () => {
-        console.log(`sort popular clicked`);
-        
-    let articles = this.state.articles
-    const sortedArticles = articles.sort((a, b) => {
-        let aComments 
-        let bComments
-        if (a.comments) {
-        aComments = a.comments.length
-        } else aComments = 0
-        if (b.comments) {
-        bComments = b.comments.length
-        } else bComments = 0        
-        return bComments - aComments
-        })
-        this.setState({
-            articles: sortedArticles
-        })
+    sortArticlesByPopular = () => {        
+        let articles = this.state.articles
+        const sortedArticles = articles.sort((a, b) => {
+            let aComments 
+            let bComments
+            if (a.comments) {
+            aComments = a.comments.length
+            } else aComments = 0
+            if (b.comments) {
+            bComments = b.comments.length
+            } else bComments = 0        
+            return bComments - aComments
+            })
+            this.setState({
+                articles: sortedArticles
+            })
     }
 
     sortArticlesByCreated = () => {
-        console.log(`sort created clicked`);
-
         let articles = this.state.articles
         const sortedArticles = articles.sort((a, b) => {
             return new Date(b.created) - new Date(a.created)
@@ -177,11 +181,11 @@ class MainPage extends Component {
                         <button className="sort-popular" onClick={this.sortArticlesByPopular}>Popular</button>
                     </div>
                     <div className='Main-container'>
-                        <Article onCommentSubmit={this.onCommentSubmit} articles={this.state.articles}/>
+                        <Article onCommentSubmit={this.handleSubmitCommentsForm} articles={this.state.articles}/>
                     </div>
                 </section>} />
                 <PrivateRoute 
-                    path='/main-page/write-article-page' component={(props) => <WriteArticlePage {...props} articlesLeft={this.state.articlesLeft} onWriteSubmit={(articleInfo) => this.onWriteSubmit(articleInfo)} /> }
+                    path='/main-page/write-article-page' component={(props) => <WriteArticlePage {...props} articlesLeft={this.state.articlesLeft} onWriteSubmit={(articleInfo) => this.handleSubmitWriteForm(articleInfo)} /> }
                 />
             </Switch>
         )
