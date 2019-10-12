@@ -158,7 +158,7 @@ class MainPage extends Component {
         this.setState({
             articles: sortedArticles
         })
-        this.myRef.current.scrollTo(0, 0);
+        this.myRef.current.scrollTo({top: 0, left: 0, behavior: 'smooth'});
     }
 
     sortArticlesByCreated = () => {
@@ -169,7 +169,7 @@ class MainPage extends Component {
         this.setState({
             articles: sortedArticles
         })
-        this.myRef.current.scrollTo(0, 0);
+        this.myRef.current.scrollTo({top: 0, left: 0, behavior: 'smooth'});
     }
 
     render() {
