@@ -1,12 +1,12 @@
 .Article {
     height: auto;
     width: 100%;
-    border: 1px solid black;
     margin: 0 0 2vh 0;
     text-align: left;
-    background-color: #2f4353;
-    background-image: linear-gradient(315deg, #2f4353 0%, #d2ccc4 74%);
-    color: white;
+    background-image: url('https://i.pinimg.com/originals/f0/18/8a/f0188a4680b2ef1ef813b9602b990798.jpg');
+    background-position: center;
+    /* background-image: linear-gradient(315deg, #2f4353 0%, #d2ccc4 74%); */
+    color: black;
 }
 
 .Article-headline {
@@ -16,23 +16,27 @@
     overflow: hidden;
     padding: 1% 0;
     box-shadow: 0px 24px 3px -24px black;
+    font-family: 'Cinzel', serif;
 }
 
-.Article-print {
-    border: 1px dashed black;
+.Article-print-container {
+    font-family: 'News Cycle', sans-serif;
     font-size: 12pt; 
     white-space: pre-wrap;      /* CSS3 */   
     white-space: -moz-pre-wrap; /* Firefox */    
     white-space: -pre-wrap;     /* Opera <7 */   
     white-space: -o-pre-wrap;   /* Opera 7 */    
     word-wrap: break-word;      /* IE */
-}
-
-.Article-print-container {
     column-count: 2;
     column-gap: 5%;
     overflow-wrap: break-word;
     padding: 2% 7%;
+}
+
+.Article-print-container::first-letter {
+    font-size: 200%;
+    line-height: .7em;
+    padding: 0 1px 0 0;
 }
 
 .Article-print-container.columns {
@@ -48,11 +52,17 @@
     text-align: right;
     font-size: 10pt;
     padding: 0 7% 0 0;
+    font-family: 'News Cycle', sans-serif;
 }
 
 .Article form {
     padding: 0;
 }
 
+.Article-container {
+    box-shadow: 0px 24px 3px -24px black;
+    margin: 0 0 5px 0;
+    padding: 0 0 5px 0;
+}
 
 

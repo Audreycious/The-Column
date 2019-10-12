@@ -13,6 +13,8 @@ import './components/Header/Header.css'
 
 function App() {
     return (
+      <React.Fragment>
+      <div className='App-background-image'></div>
       <div className="App">
         <Header />
         <main>
@@ -37,6 +39,7 @@ function App() {
           </Switch>
         </main>
       </div>
+      </React.Fragment>
     )
 }
 

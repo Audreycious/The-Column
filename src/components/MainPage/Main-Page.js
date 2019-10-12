@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Article from "../Article/Article";
-import { Link, Switch, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import WriteArticlePage from "../WriteArticle/Write-Article-Page"
 import PrivateRoute from '../../utils/PrivateRoute'
 import './Main-Page.css'
@@ -11,6 +11,7 @@ import { getAuthToken } from "../../auth/token-service"
 class MainPage extends Component {
     constructor(props) {
         super(props)
+        this.myRef = React.createRef()
         this.state = {
           articles: [],
           comments: [],
@@ -142,21 +143,22 @@ class MainPage extends Component {
     }
 
     sortArticlesByPopular = () => {        
-        let articles = this.state.articles
-        const sortedArticles = articles.sort((a, b) => {
-            let aComments 
-            let bComments
-            if (a.comments) {
-            aComments = a.comments.length
-            } else aComments = 0
-            if (b.comments) {
-            bComments = b.comments.length
-            } else bComments = 0        
-            return bComments - aComments
-            })
-            this.setState({
-                articles: sortedArticles
-            })
+      let articles = this.state.articles
+      const sortedArticles = articles.sort((a, b) => {
+        let aComments 
+        let bComments
+        if (a.comments) {
+        aComments = a.comments.length
+        } else aComments = 0
+        if (b.comments) {
+        bComments = b.comments.length
+        } else bComments = 0        
+        return bComments - aComments
+        })
+        this.setState({
+            articles: sortedArticles
+        })
+        this.myRef.current.scrollTo(0, 0);
     }
 
     sortArticlesByCreated = () => {
@@ -167,6 +169,7 @@ class MainPage extends Component {
         this.setState({
             articles: sortedArticles
         })
+        this.myRef.current.scrollTo(0, 0);
     }
 
     render() {
@@ -176,16 +179,15 @@ class MainPage extends Component {
                     exact path='/main-page'
                     render={() => <section className='Main-page'>
                     <div className='toolbar'>
-                        <Link to="/main-page/write-article-page" >Write Article</Link>
-                        Sort: <button className="sort-created" onClick={this.sortArticlesByCreated} >Created</button>
+                        <button className="sort-created" onClick={this.sortArticlesByCreated} >Created</button>
                         <button className="sort-popular" onClick={this.sortArticlesByPopular}>Popular</button>
                     </div>
-                    <div className='Main-container'>
+                    <div className='Main-container' ref={this.myRef}>
                         <Article onCommentSubmit={this.handleSubmitCommentsForm} articles={this.state.articles}/>
                     </div>
                 </section>} />
                 <PrivateRoute 
-                    path='/main-page/write-article-page' component={(props) => <WriteArticlePage {...props} articlesLeft={this.state.articlesLeft} onWriteSubmit={(articleInfo) => this.handleSubmitWriteForm(articleInfo)} /> }
+                    path='/main-page/write-article-page' component={(props) => <WriteArticlePage {...props} articlesLeft={this.state.articlesLeft} onWriteSubmit={this.handleSubmitWriteForm} /> }
                 />
             </Switch>
         )

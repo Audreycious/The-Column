@@ -59,7 +59,7 @@ export default class Article extends Component {
                 <form className='Comments-input-section' onSubmit={this.handleCommentSubmit} name={i} id={article.id} >
                     <input 
                         type="text" 
-                        placeholder='Write a comment' 
+                        placeholder='Add your op-ed to this article' 
                         name={i} 
                         value={this.state.commentsForArticle.i} 
                         onChange={this.handleInputChange} 

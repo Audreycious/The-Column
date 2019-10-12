@@ -34,7 +34,7 @@ export default class WriteArticlePage extends Component {
             <section className='Write-article-page'>
                 <div className="toolbar">
                 <p>Articles remaining: </p>
-                <p className={`` +(this.props.articlesLeft >= 3 ? 'green' : '') +(this.props.articlesLeft === 2 ? 'yellow' : '') +(this.props.articlesLeft <= 1 ? 'red' : '') +``}>{this.props.articlesLeft}</p>
+                <p className={`` +(this.props.articlesLeft >= 3 ? 'green' : '') +(this.props.articlesLeft === 2 ? 'yellow' : '') +(this.props.articlesLeft <= 1 ? 'red' : '') + ``}>{this.props.articlesLeft}</p>
                 </div>
                 <div className='Main-container Write-article-container'>
                     <form action="#" className="Article-form" onSubmit={this.handleWriteSubmit}>

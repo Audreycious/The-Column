@@ -4,5 +4,13 @@
     width: 90vw;
     overflow: scroll;
     height: 95%;
+    overflow-x: hidden;
 }
 
+.sort-popular {
+    margin: 0 0 0 10px;
+}
+
+.sort-created, .sort-popular {
+    height: 70%;
+}

@@ -6,8 +6,8 @@ export default function() {
     return (
         <section className="Landing-page">
             <div className='toolbar'>
-                <Link to="/login-page">Login</Link>
-                <Link to="/account-signup-page">Signup</Link>
+                <Link to="/login-page" className='login-button'>Login</Link>
+                <Link to="/account-signup-page" className='signup-button'>Signup</Link>
             </div>
             <div className="Description-container">
                 <p>

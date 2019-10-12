@@ -1,27 +1,45 @@
 .Comments-input-section {
     height: 20%;
+    text-align: center;
 }
 
 .Comments-input-section input {
-    width: 100%;
+    width: 76%;
+    border-radius: 5px;
+    margin: 0 0 15px 0;
 }
 
 .Comment {
     position: relative;
     min-height: 30px;
-    border: 1px solid black;
-    margin: 1% 0 0 0;
+    margin: 1% auto 0;
     padding: 1% 7%;
     font-size: 10pt;
     overflow-wrap: break-word;
     overflow: hidden;
-    background-color: #f8f9d2;
-    background-image: linear-gradient(315deg, #f8f9d2 0%, #e8dbfc 74%);
+    /* background-color: #f8f9d2; */
+    /* background-image: linear-gradient(315deg, #f8f9d2 0%, #e8dbfc 74%); */
     color: black;
+    width: 86%;
+}
+
+.Comment:after {
+    content:""; 
+    background: black; 
+    position: absolute; 
+    bottom: 0; 
+    left: 7%; 
+    width: 86%; 
+    height: 1px;
 }
 
 .Comment-username {
     font-style: italic;
     text-align: right;
     font-size: 10pt;
+    font-family: 'News Cycle', sans-serif;
+}
+
+.comments-placeholder {
+    padding: 0 0 0 12%;
 }
