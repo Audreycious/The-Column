@@ -43,7 +43,6 @@ export default class LoginPage extends Component {
                 return response.json()
             })
             .then(response => {
-                this.props.fetchArticles()
                 this.props.history.push('/main-page')
             })
             .catch(error => {
