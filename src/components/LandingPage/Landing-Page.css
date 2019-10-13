@@ -4,14 +4,12 @@
     width: 90vw;
     height: 95%;
     background-image: url('https://i.pinimg.com/originals/f0/18/8a/f0188a4680b2ef1ef813b9602b990798.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
     /* background-color: #2f4353; */
     /* background-image: linear-gradient(315deg, #2f4353 0%, #d2ccc4 74%); */
-    color: white;
-}
-
-.Landing-page p {
-    margin: 0;
-    padding: 10% 0 0 0;
+    color: black;
+    font-size: 16pt;
 }
 
 .signup-button {
@@ -22,4 +20,24 @@
     height: 70%;
     text-decoration: none;
     padding: 4px;
+}
+
+.inner-description-text, .outer-description-text {
+    max-width: 450px;
+    font-size: 4vmin;
+}
+
+.outer-description-text {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 10% 5% 0;
+    margin: 0 auto;
+    min-width: 60%;
+}
+
+.inner-description-text {
+    padding: 0;
+    margin: 0;
+    text-align: left;
 }

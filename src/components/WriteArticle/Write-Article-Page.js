@@ -33,8 +33,8 @@ export default class WriteArticlePage extends Component {
         return (
             <section className='Write-article-page'>
                 <div className="toolbar">
-                <p>Articles remaining: </p>
-                <p className={`` +(this.props.articlesLeft >= 3 ? 'green' : '') +(this.props.articlesLeft === 2 ? 'yellow' : '') +(this.props.articlesLeft <= 1 ? 'red' : '') + ``}>{this.props.articlesLeft}</p>
+                    <p className='articles-left-text' >Articles remaining:&nbsp;</p>
+                    {this.props.articlesLeft === 0 ? <img alt="A large zero" className="giant-zero-image" src="https://myrealdomain.com/images/0-png-7.png"></img> : <p className={`articles-left-number ` + (this.props.articlesLeft >= 3 ? 'green' : '') +(this.props.articlesLeft === 2 ? 'yellow' : '') +(this.props.articlesLeft <= 1 ? 'red' : '') + ``}>{this.props.articlesLeft}</p>}
                 </div>
                 <div className='Main-container Write-article-container'>
                     <form action="#" className="Article-form" onSubmit={this.handleWriteSubmit}>

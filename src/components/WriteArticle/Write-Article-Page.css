@@ -1,7 +1,10 @@
 
 .Write-article-container {
-    background-color: #2f4353;
-    background-image: linear-gradient(315deg, #2f4353 0%, #d2ccc4 74%);
+    /* background-color: #2f4353; */
+    /* background-image: linear-gradient(315deg, #2f4353 0%, #d2ccc4 74%); */
+    background-image: url('https://i.pinimg.com/originals/f0/18/8a/f0188a4680b2ef1ef813b9602b990798.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
     color: white;
 }
 
@@ -57,8 +60,24 @@
 
 .yellow {
     color: rgb(223, 223, 24);
+    text-shadow: 1px 1px 1px black;
 }
 
 .green {
     color: green;
+}
+
+.articles-left-text {
+    font-size: 16pt;
+    line-height: 30px;
+}
+
+.articles-left-number {
+    font-size: 20pt;
+}
+
+.giant-zero-image {
+    padding: 1% 0;
+    height: 100%;
+    width: 25px;
 }

@@ -15,7 +15,7 @@ class MainPage extends Component {
         this.state = {
           articles: [],
           comments: [],
-          articlesLeft: Number,
+          articlesLeft: '',
         }
       }   
     
@@ -51,8 +51,6 @@ class MainPage extends Component {
         .then(([articlesResJson, comments]) => {
           // for each comment search the article array and find the matching id, then insert the comment into the article.comments, then remake the array and set the state with the new array
           let articles = articlesResJson.articles
-          console.log(articlesResJson);
-          
           let articlesLeft = articlesResJson.articlesLeft
           comments.forEach((comment) => {
             let tempArticle = articles.find((article) => comment.article_id === article.id
@@ -64,15 +62,15 @@ class MainPage extends Component {
               }
             }) 
           })
-          console.log(articlesLeft);
           
-          this.setState({articles: articles,
-        articlesLeft: articlesLeft})
-        })
-        .catch(error => {
-          alert(error.message)
-        })    
-      }
+          this.setState({
+            articles: articles,
+            articlesLeft: articlesLeft})
+          })
+          .catch(error => {
+            alert(error.message)
+          })    
+    }
     
     handleArticleUsed = () => {
         if (this.state.articlesLeft !== 0) {
