@@ -5,7 +5,7 @@
     background-image: url('https://i.pinimg.com/originals/f0/18/8a/f0188a4680b2ef1ef813b9602b990798.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    color: white;
+    color: black;
 }
 
 .Write-article-page form {
@@ -34,6 +34,10 @@
 
 .Write-article-page textarea::placeholder {
     font-size: 4.5vmin;
+}
+
+.Write-article-page legend {
+    font-size: 6vmin;
 }
 
 .Article-headline-input {
@@ -80,4 +84,34 @@
     padding: 1% 0;
     height: 100%;
     width: 25px;
+}
+
+@media only screen and (min-width: 420px) {
+    .Write-article-page textarea::placeholder {
+        font-size: 3vmin;
+    }
+
+    .Write-article-page legend {
+        font-size: 5vmin;
+    }
+}
+
+@media only screen and (min-width: 800px) {
+    .Write-article-page textarea::placeholder {
+        font-size: 2vmin;
+    }
+
+    .Write-article-page legend {
+        font-size: 4vmin;
+    }
+}
+
+@media only screen and (min-width: 1100px) {
+    .Write-article-page textarea::placeholder {
+        font-size: 1.5vmin;
+    }
+
+    .Write-article-page legend {
+        font-size: 3vmin;
+    }
 }

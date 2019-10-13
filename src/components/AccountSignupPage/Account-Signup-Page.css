@@ -1,24 +1,29 @@
-.Account-signup-page {
-  display: flex;
-  padding: 10% 0 0 0;
-}
-
-.Article-signup-page form {
-  padding: 10% 0 0 0;
-  max-width: 400px;
-  margin: 0 auto;
-}
-
-.Article-signup-page fieldset {
+.Account-signup-container {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  padding: 5% 0 0 0;
+  margin: 0 auto;
+  width: 90vw;
+  height: 95%;
+  background-image: url('https://i.pinimg.com/originals/f0/18/8a/f0188a4680b2ef1ef813b9602b990798.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.Account-signup-container form {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.Account-signup-container fieldset {
+  display: flex;
+  flex-direction: column;
   margin: 0;
   border: none;
   padding: 0 10%;
 }
 
-.Article-signup-page label, .Article-signup-page input {
+.Account-signup-container label, .Account-signup-container input {
   padding: 1% 0 0 1%;
   margin: 0;
   text-align: start;
@@ -26,15 +31,34 @@
   font-size: 4.5vmin;
 }
 
-.Article-signup-page legend {
+.Account-signup-container legend {
   margin: 0 0 5% 0;
   font-size: 6vmin;
 }
 
-.Article-signup-page button {
+.Account-signup-container button {
   font-size: 4.5vmin;
 }
 
-.Article-signup-page p {
-  padding: 5%;
+.Account-signup-container p {
+  padding: 2%;
+}
+
+@media only screen and (min-width: 420px) {
+  .Account-signup-container label, .Account-signup-container input {
+    font-size: 4vmin;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .Account-signup-container label, .Account-signup-container input {
+    font-size: 3vmin;
+    line-height: 1em;
+  }
+}
+
+@media only screen and (min-width: 1100px) {
+  .Account-signup-container label, .Account-signup-container input {
+    font-size: 2vmin;
+  }
 }

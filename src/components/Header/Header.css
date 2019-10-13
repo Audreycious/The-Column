@@ -68,4 +68,8 @@ h1 {
         display: flex;
         justify-content: flex-start;
     }
+
+    h1 {
+        font-size: 5.5vmin;
+    }    
 }

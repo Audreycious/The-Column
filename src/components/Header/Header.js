@@ -22,7 +22,8 @@ export default class Header extends Component {
             <header className="App-header">
                 <div className="write-article-container header-buffer">
                     {window.location.pathname === "/main-page" ? <button className='write-new-article-button' onClick={this.handleWriteButton} >Write New Article</button> : null}
-                    {window.location.pathname === "/main-page/write-article-page" ? <button className='write-article-back-button' onClick={this.handleBackButton} >Go back</button> : null}
+                    {window.location.pathname === "/main-page/write-article-page" ? <button className='back-button' onClick={this.handleBackButton} >Go back</button> : null}
+                    {window.location.pathname === "/account-signup-page" ? <button className='back-button' onClick={this.handleBackButton} >Go back</button> : null}
                 </div>
                 <div className="home-container">
                     <h1>The Column</h1>

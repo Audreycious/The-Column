@@ -46,7 +46,7 @@ export default class LoginPage extends Component {
                 this.props.history.push('/main-page')
             })
             .catch(error => {
-                alert(error)
+                alert(error.error)
             })
     }
 

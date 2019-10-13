@@ -72,7 +72,8 @@ export default class AccountSignupPage extends Component {
     render() {
         return (
             <section className='Account-signup-page'>
-                <div className='Main-container'>
+                <div className='toolbar'></div>
+                <div className='Account-signup-container'>
                     <form action="#" className="Signup-form" onSubmit={this.handleSignupSubmit}>
                     <fieldset>
                         <legend>Signup for The Column</legend>

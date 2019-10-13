@@ -177,7 +177,7 @@ class MainPage extends Component {
                     exact path='/main-page'
                     render={() => <section className='Main-page'>
                     <div className='toolbar'>
-                        <button className="sort-created" onClick={this.sortArticlesByCreated} >Created</button>
+                        <button className="sort-created" onClick={this.sortArticlesByCreated} >Recent</button>
                         <button className="sort-popular" onClick={this.sortArticlesByPopular}>Popular</button>
                     </div>
                     <div className='Main-container' ref={this.myRef}>

@@ -12,18 +12,17 @@ export default function() {
             <div className="Description-container">
                 <div className="outer-description-text">
                     Welcome to The Column!<br/>
-                    -The social networking app with global posting<br/>
+                    -The social networking app with limited global posting<br/>
                     <br/>
                     <br/>
                     <p className="inner-description-text">
-                        Create your account and login to view the latest articles written<br/>
+                        Create your account (or use Username: Demo / Password: Demo) and login to view the latest articles written<br/>
                         <br/>
                         Sort The Column by Popular to see the articles with today's top activity<br/>
                         <br/>
                         Add your op-ed to an article in the section below it<br/>
                         <br/>
-                        Write your own article, but be careful!<br/>
-                        <br/>
+                        Write your own article, but choose wisely!<br/>
                         The Column only allows you to write 3 new articles a year<br/>
                         <br/>
                         <br/>
